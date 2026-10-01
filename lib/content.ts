@@ -65,8 +65,8 @@ export const email = "hi@thomasdamien.com";
 export const sections = [
   { n: "01", id: "about", title: "About" },
   { n: "02", id: "projects", title: "Projects" },
-  { n: "03", id: "reading", title: "Reading" },
-  { n: "04", id: "writing", title: "Writing" },
+  { n: "03", id: "media", title: "Media" },
+  { n: "04", id: "reading", title: "Reading" },
   { n: "05", id: "workbench", title: "Workbench" },
   { n: "06", id: "beliefs", title: "Beliefs" },
 ] as const;
@@ -143,9 +143,12 @@ export const reading: {
   ],
 };
 
-export const writing = {
-  aside: "Archive · Substack",
+export const media = {
+  aside: "Essays · podcast",
   posts: [
+    { log: "LOG 26.09.15", date: "Sep 15, 2026", title: "How to scale founder-led growth",
+      dek: "Future of Marketing. A conversation from Watt.",
+      href: "https://www.youtube.com/watch?v=g0r8Hv5taD8" },
     { log: "LOG 24.08.13", date: "Aug 13, 2024", title: "Circular logic, exponential progress",
       dek: "On the Hermeneutic Circle, an old idea for working through complex problems.",
       href: "https://tsweens.substack.com/p/circular-logic-exponential-progress" },

@@ -1,24 +1,24 @@
-import { sections, writing } from "@/lib/content";
+import { media, sections } from "@/lib/content";
 import { SectionLabel } from "./section-label";
 import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
-export function Writing() {
-  const section = sections.find((item) => item.id === "writing");
+export function Media() {
+  const section = sections.find((item) => item.id === "media");
   if (!section) return null;
 
   return (
-    <section id={section.id} className={styles.section} aria-labelledby="writing-heading">
+    <section id={section.id} className={styles.section} aria-labelledby="media-heading">
       <div className={styles.wrap}>
         <SectionLabel
           index={section.n}
           title={section.title}
-          aside={writing.aside}
+          aside={media.aside}
           heading
-          headingId="writing-heading"
+          headingId="media-heading"
         />
         <ul className={styles.archive}>
-          {writing.posts.map((post) => (
+          {media.posts.map((post) => (
             <li key={post.href}>
               <SiteLink href={post.href} className={styles.post}>
                 <span className={styles.postMeta}>
@@ -33,8 +33,8 @@ export function Writing() {
             </li>
           ))}
         </ul>
-        <div className={styles.writingLinks}>
-          {writing.links.map((link) => (
+        <div className={styles.mediaLinks}>
+          {media.links.map((link) => (
             <SiteLink key={link.href} href={link.href}>
               {link.label} <span aria-hidden="true">→</span>
             </SiteLink>

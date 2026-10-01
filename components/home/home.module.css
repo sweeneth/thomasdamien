@@ -668,7 +668,7 @@
   color: var(--ts-body-ink);
 }
 
-.writingLinks {
+.mediaLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 40px;
@@ -678,13 +678,13 @@
   letter-spacing: 0.08em;
 }
 
-.writingLinks a {
+.mediaLinks a {
   text-decoration: none;
   text-transform: uppercase;
   color: var(--ts-harbor-green);
 }
 
-.writingLinks a:hover {
+.mediaLinks a:hover {
   color: var(--ts-harbor-green);
 }
 

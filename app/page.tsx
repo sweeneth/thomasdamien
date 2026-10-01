@@ -2,11 +2,11 @@ import { About } from "@/components/home/about";
 import { Beliefs } from "@/components/home/beliefs";
 import { Colophon } from "@/components/home/colophon";
 import { Hero } from "@/components/home/hero";
+import { Media } from "@/components/home/media";
 import { Nav } from "@/components/home/nav";
 import { Projects } from "@/components/home/projects";
 import { Reading } from "@/components/home/reading";
 import { Workbench } from "@/components/home/workbench";
-import { Writing } from "@/components/home/writing";
 import { email, site, socials } from "@/lib/content";
 
 export default function Home() {
@@ -37,8 +37,8 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
+        <Media />
         <Reading />
-        <Writing />
         <Workbench />
         <Beliefs />
         <Colophon />
