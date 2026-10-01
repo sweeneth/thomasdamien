@@ -8,29 +8,29 @@ const inter = Inter({
 });
 
 const description =
-  "Tom Sweeney is Head of Growth at Watt and builds things, including THE PROGRAM. Based in Los Angeles.";
+  "Thomas Sweeney is Head of Growth at Watt. He builds things, including THE PROGRAM, and lives in Los Angeles.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thomasdamien.com"),
   title: {
-    default: "Tom Sweeney",
-    template: "%s · Tom Sweeney",
+    default: "Thomas Sweeney",
+    template: "%s · Thomas Sweeney",
   },
   description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Tom Sweeney",
+    title: "Thomas Sweeney",
     description,
     url: "https://thomasdamien.com",
-    siteName: "Tom Sweeney",
+    siteName: "Thomas Sweeney",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tom Sweeney",
+    title: "Thomas Sweeney",
     description,
     creator: "@tsweens",
   },

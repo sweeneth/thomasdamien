@@ -1,10 +1,53 @@
+/**
+ * All public copy lives here. Edit this file to change the site.
+ *
+ * GitHub: https://github.com/sweeneth is a public account with no bio.
+ * Confirm it is yours, or replace `profiles.github`.
+ *
+ * Favorite tools are a starter set (Cursor, plus Claude and Midjourney,
+ * which you have mentioned before). Revise names and notes freely.
+ *
+ * Trash entries are placeholders, not a real history.
+ */
+
 export const email = "hi@thomasdamien.com";
 
 export const profiles = {
+  github: "https://github.com/sweeneth",
   x: "https://x.com/tsweens",
   linkedin: "https://www.linkedin.com/in/thomasdamien",
   substack: "https://tsweens.substack.com",
 } as const;
+
+export const hero = {
+  name: "Thomas Sweeney",
+  location: "Los Angeles",
+  line: "I take useful software to the people who need it, and I still like building it.",
+  currentLabel: "Current",
+  current: "Head of Growth at Watt",
+  currentHref: "https://wattdata.ai",
+  image: {
+    src: "/canyon.jpg",
+    alt: "A wide canyon in warm daylight, layered rock under a pale blue sky.",
+    credit: "Photograph via Unsplash",
+    creditHref: "https://unsplash.com/photos/qQC8tyG_JVA",
+  },
+} as const;
+
+export const socials = [
+  { label: "GitHub", href: profiles.github, icon: "github" },
+  { label: "X", href: profiles.x, icon: "x" },
+  { label: "Email", href: `mailto:${email}`, icon: "mail" },
+  { label: "LinkedIn", href: profiles.linkedin, icon: "linkedin" },
+] as const;
+
+export const sectionNav = [
+  { href: "#projects", label: "Projects" },
+  { href: "#writing", label: "Writing" },
+  { href: "#about", label: "About" },
+  { href: "#tools", label: "Tools" },
+  { href: "#contact", label: "Contact" },
+] as const;
 
 export const projects = [
   {
@@ -29,10 +72,7 @@ export const projects = [
   },
 ] as const;
 
-/**
- * Placeholder failures. Clearly labeled so they are not read as real history.
- * Thom: replace the title and line, or delete an entry, in this file.
- */
+/** Placeholder failures. Replace or delete. Not a real history. */
 export const trash = [
   {
     kicker: "Placeholder",
@@ -68,26 +108,70 @@ export const writing = [
   },
 ] as const;
 
-export const experience = [
+type Span = { text: string; href?: string };
+
+export const about: Span[][] = [
+  [
+    { text: "I'm Head of Growth at " },
+    { text: "Watt", href: "https://wattdata.ai" },
+    {
+      text: ". I lead brand, marketing, and go-to-market. Watt builds signal infrastructure for AI agents. I also made ",
+    },
+    { text: "THE PROGRAM", href: "https://theprogram.news" },
+    {
+      text: ", an index of US cable-news airtime from GDELT Television captions and the Internet Archive.",
+    },
+  ],
+  [
+    { text: "Before Watt I was Head of Growth at CoinTracker. Before that, Meta. I started there as a Programs Lead on media products — Music, Stories, Live, Premium Video, Creator Tools, Rights Manager, and Cloud Gaming — and later became a Corporate Development Lead, focused on AR/VR and AI. I mentored leaders, and teams as large as about 30." },
+  ],
+  [
+    {
+      text: "The years before Meta were media, between New York and Los Angeles. About a decade of it: CBS, a stint at CAA, and a digital marketing agency I ran in New York.",
+    },
+  ],
+  [
+    {
+      text: "I live in Los Angeles. MBA from NYU Stern, BA from Boston College. I advise a little and write tiny checks, and I've mentored through First Round's Fast Track.",
+    },
+  ],
+];
+
+/** Typographic names, not official logos. */
+export const marks = [
+  { name: "Watt", href: "https://wattdata.ai" },
+  { name: "Meta", href: "https://about.meta.com" },
+  { name: "CoinTracker", href: "https://www.cointracker.com" },
+  { name: "CBS", href: null },
+  { name: "CAA", href: null },
+  { name: "THE PROGRAM", href: "https://theprogram.news" },
+] as const;
+
+/** Starter set. Replace notes and links as you like. */
+export const tools = [
   {
-    when: "Now",
-    role: "Head of Growth, Watt",
-    detail: "Brand, marketing, and go-to-market.",
+    name: "Cursor",
+    href: "https://cursor.com",
+    note: "Where the building happens.",
   },
   {
-    when: "Previously",
-    role: "Head of Growth, CoinTracker",
-    detail: "Before Watt.",
+    name: "Claude",
+    href: "https://claude.ai",
+    note: "Writing, critique, and the longer version.",
   },
   {
-    when: "Earlier",
-    role: "Corporate Development Lead, Meta",
-    detail: "New businesses and technologies, mostly AR/VR and AI.",
+    name: "Midjourney",
+    href: "https://www.midjourney.com",
+    note: "When the work needs a picture.",
   },
   {
-    when: "Earlier",
-    role: "Programs Lead, Meta",
-    detail:
-      "Media products: Music, Stories, Live, Premium Video, Creator Tools, Rights Manager, Cloud Gaming.",
+    name: "Figma",
+    href: "https://www.figma.com",
+    note: "Layouts before they are real.",
+  },
+  {
+    name: "Notion",
+    href: "https://www.notion.so",
+    note: "The pile of notes that becomes a plan.",
   },
 ] as const;

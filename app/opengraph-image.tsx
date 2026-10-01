@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Tom Sweeney, Head of Growth at Watt";
+export const alt = "Thomas Sweeney, Head of Growth at Watt";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,7 +31,7 @@ export default function OpenGraphImage() {
             lineHeight: 1,
           }}
         >
-          Tom Sweeney
+          Thomas Sweeney
         </div>
         <div
           style={{
