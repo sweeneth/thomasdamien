@@ -144,7 +144,6 @@ export const reading: {
 
 export const writing = {
   aside: "Archive · Substack",
-  headline: "Two essays from 2024. The next one is in the logbook.",
   posts: [
     { log: "LOG 24.08.13", date: "Aug 13, 2024", title: "Circular logic, exponential progress",
       dek: "On the Hermeneutic Circle, an old idea for working through complex problems.",

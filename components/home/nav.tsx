@@ -11,10 +11,13 @@ export function Nav() {
   return (
     <header className={styles.header}>
       <div className={`${styles.wrap} ${styles.headerInner}`}>
-        <a href="#top" className={styles.mark} aria-label={`${site.name}, back to top`}>
-          <Image src="/brand/signal-mark.svg" alt="" width={38} height={38} />
-        </a>
-        {/* Intro link may be added here later. Section links stay out of the header. */}
+        <div className={styles.brandCluster}>
+          <a href="#top" className={styles.mark} aria-label="Back to top">
+            <Image src="/brand/signal-mark.svg" alt="" width={38} height={38} />
+          </a>
+          {/* Intro link may be added here later. Section links stay out of the header. */}
+          <h1 className={styles.headerName}>{site.name}</h1>
+        </div>
         <ul className={styles.iconNav}>
           {iconLinks.map((item) => (
             <li key={item.label}>

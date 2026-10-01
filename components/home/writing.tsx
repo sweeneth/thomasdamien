@@ -9,10 +9,13 @@ export function Writing() {
   return (
     <section id={section.id} className={styles.section} aria-labelledby="writing-heading">
       <div className={styles.wrap}>
-        <SectionLabel index={section.n} title={section.title} aside={writing.aside} />
-        <h2 id="writing-heading" className={styles.headline}>
-          {writing.headline}
-        </h2>
+        <SectionLabel
+          index={section.n}
+          title={section.title}
+          aside={writing.aside}
+          heading
+          headingId="writing-heading"
+        />
         <ul className={styles.archive}>
           {writing.posts.map((post) => (
             <li key={post.href}>
