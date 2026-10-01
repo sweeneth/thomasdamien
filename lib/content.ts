@@ -121,23 +121,23 @@ export const reading: {
   aside: string;
   headline: string;
   shelf: Book[];
-  callouts: { label: string; title: string; author: string }[];
+  callouts: { label: string; title: string; author: string; now?: boolean }[];
 } = {
   aside: "Updated Oct 2026",
   headline: "On the nightstand.",
   shelf: [
-    { title: "Gut Feelings", author: "Gerd Gigerenzer", tag: "NOW", spine: "ink", height: 196, width: 44 },
-    { title: "Net Worth", author: "Quentin Casey", spine: "harbor", height: 184, width: 46 },
+    { title: "Net Worth", author: "Quentin Casey", tag: "NOW", spine: "harbor", height: 184, width: 46 },
+    { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", tag: "NOW", spine: "ink", height: 222, width: 56 },
+    { title: "Gut Feelings", author: "Gerd Gigerenzer", spine: "sailcloth", height: 196, width: 44 },
     { title: "The Dog Stars", author: "Peter Heller", spine: "signal", height: 208, width: 42 },
     { title: "Troubled", author: "Rob Henderson", spine: "slate", height: 172, width: 40 },
-    { title: "The Rational Optimist", author: "Matt Ridley", spine: "sailcloth", height: 220, width: 58 },
-    { title: "Against the Machine", author: "Paul Kingsnorth", spine: "rule", height: 206, width: 50 },
+    { title: "The Rational Optimist", author: "Matt Ridley", spine: "rule", height: 220, width: 58 },
+    { title: "Against the Machine", author: "Paul Kingsnorth", spine: "harbor", height: 206, width: 50 },
     { title: "How Music Works", author: "David Byrne", spine: "ink", height: 190, width: 46 },
   ],
   callouts: [
-    { label: "Reading now", title: "Gut Feelings", author: "Gerd Gigerenzer" },
-    { label: "Recent", title: "Net Worth", author: "Quentin Casey" },
-    { label: "Also", title: "How Music Works", author: "David Byrne" },
+    { label: "Reading now", title: "Net Worth", author: "Quentin Casey", now: true },
+    { label: "Also reading", title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", now: true },
   ],
 };
 

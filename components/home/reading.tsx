@@ -63,11 +63,9 @@ export function Reading() {
             <p className={styles.shelfNote}>TAP A SPINE TO OPEN IT ON GOODREADS</p>
           </div>
           <dl className={styles.callouts}>
-            {reading.callouts.map((item, index) => (
+            {reading.callouts.map((item) => (
               <div key={item.label} className={styles.fact}>
-                <dt
-                  className={`${styles.factLabel} ${index === 0 ? styles.calloutLabelNow : ""}`}
-                >
+                <dt className={`${styles.factLabel} ${item.now ? styles.calloutLabelNow : ""}`}>
                   {item.label}
                 </dt>
                 <dd className={styles.factValue}>
