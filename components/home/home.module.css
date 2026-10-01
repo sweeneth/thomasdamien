@@ -173,8 +173,17 @@
   overflow: hidden;
   background: var(--ts-ink);
   color: var(--ts-sailcloth);
-  /* Definite height so the stage's cqh crop resolves. Taller than the handoff's 70vh example so the sky above the ridge stays. */
+  /* Definite height so the stage's cqh crop resolves. */
   height: clamp(680px, 78vw, 960px);
+}
+
+@media (min-width: 721px) {
+  .hero {
+    /* Fit under the sticky header so coords, current, and the index are in the first paint.
+       Cap keeps the taller sky on large monitors. vh fallback, then svh. */
+    height: clamp(680px, calc(100vh - 72px), 960px);
+    height: clamp(680px, calc(100svh - 72px), 960px);
+  }
 }
 
 .scrim {
