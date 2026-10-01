@@ -190,6 +190,8 @@ export const beliefs: {
     },
     {
       text: "Action leads to insight more often than insight leads to action.",
+      by: "Richard Pascale",
+      named: true,
     },
     {
       text: "My best years are past, but I wouldn’t want them back, not with all the fire that’s in me now.",
@@ -198,7 +200,7 @@ export const beliefs: {
     },
     {
       text: "He who jumps into the void owes no explanation to those who stand and watch.",
-      by: "Jean-Luc Godard (attributed)",
+      by: "Jean-Luc Godard",
       named: true,
     },
     {
