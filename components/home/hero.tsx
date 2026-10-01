@@ -10,6 +10,19 @@ const ORIGIN_WEST = 118.24;
 /** ±0.04°, a few hundredths around the Los Angeles origin. */
 const SPAN = 0.08;
 
+function ringDots(radius: number, count: number) {
+  return Array.from({ length: count }, (_, index) => {
+    const angle = (index / count) * Math.PI * 2 - Math.PI / 2;
+    return {
+      cx: 18 + Math.cos(angle) * radius,
+      cy: 18 + Math.sin(angle) * radius,
+    };
+  });
+}
+
+const OUTER_DOTS = ringDots(13, 16);
+const INNER_DOTS = ringDots(8.5, 12);
+
 function formatFix(lat: number, west: number) {
   const latHemisphere = lat >= 0 ? "N" : "S";
   const lonHemisphere = west >= 0 ? "W" : "E";
@@ -81,9 +94,13 @@ export function Hero() {
       />
       <div className={styles.scrim} aria-hidden="true" />
       <div ref={reticleRef} className={styles.reticle} hidden>
-        <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
-          <circle className={styles.reticleRing} cx="14" cy="14" r="11" />
-          <circle className={styles.reticleCore} cx="14" cy="14" r="7" />
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          {OUTER_DOTS.map((dot, index) => (
+            <circle key={`outer-${index}`} className={styles.reticleDot} cx={dot.cx} cy={dot.cy} r="1.7" />
+          ))}
+          {INNER_DOTS.map((dot, index) => (
+            <circle key={`inner-${index}`} className={styles.reticleCore} cx={dot.cx} cy={dot.cy} r="1.15" />
+          ))}
         </svg>
       </div>
       <div className={`${styles.wrap} ${styles.heroInner}`}>
