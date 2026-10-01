@@ -152,14 +152,7 @@ export default function Home() {
                 className="h-10 w-auto sm:h-12"
               />
             </a>
-            <p className="meta hidden text-right sm:block">
-              {hero.location}
-              <span className="mx-2 text-rule" aria-hidden="true">
-                /
-              </span>
-              {coordinates}
-            </p>
-            <SocialLinks className="hidden items-center lg:flex" />
+            <SocialLinks className="hidden items-center md:flex" />
           </div>
           <nav aria-label="On this page">
             <ul className="flex flex-wrap gap-x-4 gap-y-2">
@@ -443,7 +436,7 @@ export default function Home() {
                 <TextLink href={profiles.linkedin}>LinkedIn</TextLink>
               </li>
             </ul>
-            <SocialLinks className="mt-8 flex items-center gap-1 lg:hidden" />
+            <SocialLinks className="mt-8 flex items-center gap-1 md:hidden" />
           </section>
         </div>
       </main>
