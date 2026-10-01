@@ -1,6 +1,6 @@
 # Thomas Sweeney
 
-Personal site for [thomasdamien.com](https://thomasdamien.com). One long-scroll page: hero, about, projects, media, reading, workbench, and beliefs.
+Personal site for [thomasdamien.com](https://thomasdamien.com). One long-scroll page: hero, about, projects, media, reading, workbench, beliefs, and contact. The hero index stops at Beliefs.
 
 Built with Next.js (App Router), TypeScript, and Tailwind CSS. No CMS, database, or analytics.
 

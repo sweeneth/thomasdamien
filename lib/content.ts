@@ -193,7 +193,10 @@ export const beliefs: {
   ],
 };
 
-export const colophon = {
-  line: "END OF LOG",
+export const contact = {
+  aside: "Replies within a few days",
+  headline: "Send a signal.",
+  body: "Building something, hiring for growth, or want to compare notes on a book? Email is best.",
+  colophon: "END OF LOG",
   copyright: "© 2026 THOMAS SWEENEY",
 };
