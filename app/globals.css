@@ -1,94 +1,122 @@
 @import "tailwindcss";
+@import "../styles/hero-stage.css";
+
+/* Brand tokens — design-handoff/brand/tokens.css
+   Dark-section tints are from the approved homepage: secondary #A9B1BC, hairline #3A4A60. */
 
 :root {
-  --background: #f7f6f3;
-  --foreground: #1a1917;
-  --muted: #5e5a55;
-  --accent: #8f4630;
-  --line: rgb(26 25 23 / 0.12);
-  --wash: #f3ebe6;
+  --ts-ink: #14243a;
+  --ts-sailcloth: #f4f1ea;
+  --ts-harbor-green: #2e5b4b;
+  --ts-signal: #c8461b;
+  --ts-flag-gold: #e0a93b; /* flags only — do not use in UI */
+  --ts-slate: #5a6270;
+  --ts-body-ink: #3a4556;
+  --ts-rule: #d9d3c5;
+  --ts-surface: #ffffff;
+  --ts-on-ink: #a9b1bc;
+  --ts-hairline: #3a4a60;
+
+  --ts-font-display: var(--font-newsreader), Georgia, serif;
+  --ts-font-body: var(--font-instrument), system-ui, sans-serif;
+  --ts-font-mono: var(--font-plex), ui-monospace, monospace;
+
+  --ts-text-display: 64px;
+  --ts-text-h1: 48px;
+  --ts-text-h2: 32px;
+  --ts-text-h3: 24px;
+  --ts-text-body-lg: 20px;
+  --ts-text-body: 18px;
+  --ts-text-small: 15px;
+  --ts-text-label: 13px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-wash: var(--wash);
-  --color-line: var(--line);
+  --color-ink: var(--ts-ink);
+  --color-sailcloth: var(--ts-sailcloth);
+  --color-harbor: var(--ts-harbor-green);
+  --color-signal: var(--ts-signal);
+  --color-slate: var(--ts-slate);
+  --color-body: var(--ts-body-ink);
+  --color-rule: var(--ts-rule);
+  --color-surface: var(--ts-surface);
+  --font-display: var(--ts-font-display);
+  --font-body: var(--ts-font-body);
+  --font-mono: var(--ts-font-mono);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   color-scheme: light;
-  scroll-behavior: smooth;
-  scroll-padding-top: 4.75rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--ts-sailcloth);
+  color: var(--ts-ink);
+  font-family: var(--ts-font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
   text-rendering: optimizeLegibility;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+a {
+  color: var(--ts-ink);
+}
+
+a:hover {
+  color: var(--ts-harbor-green);
+}
+
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ts-signal);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: #eddcd3;
-  color: #1a1917;
+  background: var(--ts-rule);
+  color: var(--ts-ink);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 20;
+  transform: translateY(-150%);
+  background: var(--ts-sailcloth);
+  color: var(--ts-ink);
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .enter {
-    animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .enter-2 {
-    animation-delay: 0.12s;
-  }
-
-  .enter-3 {
-    animation-delay: 0.24s;
-  }
-
-  .rise {
-    animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 18%;
-  }
-
-  .live-dot {
-    animation: pulse 2.8s ease-in-out infinite;
-  }
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.35;
-  }
+.skip-link:focus {
+  transform: none;
 }

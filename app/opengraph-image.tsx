@@ -13,22 +13,22 @@ export default function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          background: "#f7f6f3",
-          color: "#1a1917",
-          padding: "80px",
+          justifyContent: "flex-end",
+          background: "#14243A",
+          color: "#F4F1EA",
+          padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 24, color: "#8f4630" }}>
-          thomasdamien.com
+        <div style={{ display: "flex", fontSize: 22, letterSpacing: "0.12em", color: "#A9B1BC" }}>
+          THOMASDAMIEN.COM
         </div>
         <div
           style={{
             display: "flex",
-            marginTop: 28,
-            fontSize: 76,
-            letterSpacing: "-0.04em",
-            lineHeight: 1,
+            marginTop: 24,
+            fontSize: 84,
+            letterSpacing: "-0.02em",
+            lineHeight: 0.95,
           }}
         >
           Thomas Sweeney
@@ -36,14 +36,14 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: "flex",
-            width: 64,
-            height: 3,
+            width: 48,
+            height: 4,
             marginTop: 28,
-            background: "#8f4630",
+            background: "#C8461B",
           }}
         />
-        <div style={{ display: "flex", marginTop: 28, fontSize: 32 }}>
-          Head of Growth at Watt
+        <div style={{ display: "flex", marginTop: 24, fontSize: 32, color: "#F4F1EA" }}>
+          Head of Growth, Watt
         </div>
       </div>
     ),

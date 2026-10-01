@@ -1,0 +1,139 @@
+// lib/content.ts — every word on the homepage lives here.
+// Components read from this file; they never hardcode copy.
+// Items marked TODO are placeholders waiting on real content.
+
+export const site = {
+  name: "Thomas Sweeney",
+  domain: "thomasdamien.com",
+  location: "Los Angeles",
+  coordinates: "34.05° N · 118.24° W",
+  oneLiner: {
+    lead: "I take useful software to the people who need it, and I ",
+    emphasis: "still like building it.", // set in Newsreader italic
+  },
+  current: { label: "Head of Growth, Watt", href: "https://wattdata.ai" },
+  heroImage: { src: "/hero.jpg", alt: "" }, // decorative; TODO: replace with a ≥3000px-wide original
+};
+
+export const socials = [
+  { label: "GitHub", href: "https://github.com/sweeneth", handle: "github.com/sweeneth", icon: "/icons/github.svg" },
+  { label: "X", href: "https://x.com/tsweens", handle: "@tsweens", icon: "/icons/x.svg" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/thomasdamien", handle: "in/thomasdamien", icon: "/icons/linkedin.svg" },
+  { label: "Substack", href: "https://tsweens.substack.com", handle: "tsweens.substack.com" }, // contact list only
+] as const;
+
+export const email = "hi@thomasdamien.com";
+
+// The numbered index. Order here = order on the page.
+export const sections = [
+  { n: "01", id: "about", title: "About", blurb: "Twenty years, two industries" },
+  { n: "02", id: "projects", title: "Projects", blurb: "Made, and thrown overboard" },
+  { n: "03", id: "reading", title: "Reading", blurb: "What's on the nightstand" },
+  { n: "04", id: "writing", title: "Writing", blurb: "Essays, 2024" },
+  { n: "05", id: "workbench", title: "Workbench", blurb: "Tools I use daily" },
+  { n: "06", id: "contact", title: "Contact", blurb: "Send a signal" },
+] as const;
+
+export const about = {
+  aside: "Los Angeles",
+  headline: "Twenty years between media and technology, building the whole way through.",
+  // Each paragraph is an array of plain strings and links.
+  paragraphs: [
+    ["I lead growth at ", { text: "Watt", href: "https://wattdata.ai" }, ", where I run brand, marketing, and go-to-market. Watt builds signal infrastructure for AI agents. On nights and weekends I build ", { text: "THE PROGRAM", href: "https://theprogram.news" }, ", an index of what American cable news talks about."],
+    ["Before Watt I ran growth at CoinTracker. Before that I was at Meta, first as a programs lead on media products (Music, Stories, Live, Premium Video, Creator Tools, Rights Manager, and Cloud Gaming), then in corporate development on AR/VR and AI. I've led and mentored teams of up to about 30."],
+    ["The decade before Meta was media, split between New York and Los Angeles: CBS, a stint at CAA, and a digital agency I ran in New York."],
+    ["I advise a little, write small checks, and mentor through First Round's Fast Track."],
+  ],
+  facts: [
+    { label: "Currently", value: "Head of Growth, Watt", href: "https://wattdata.ai" },
+    { label: "Previously", value: "CoinTracker · Meta · CAA · CBS" },
+    { label: "Education", value: "MBA, NYU Stern · BA, Boston College" },
+    { label: "Mentoring", value: "First Round Fast Track" },
+  ],
+  // "Logged at" tray. Logos are pre-flattened to one color; height is optical, per logo.
+  loggedAt: [
+    { name: "Watt", href: "https://wattdata.ai", logo: "/logos/watt.png", height: 26 },
+    { name: "CoinTracker", href: "https://www.cointracker.com", logo: "/logos/cointracker.png", height: 19 },
+    { name: "Meta", href: "https://about.meta.com", logo: "/logos/meta.png", height: 22 },
+    { name: "CAA", logo: "/logos/caa.png", height: 22 },
+    { name: "CBS", logo: "/logos/cbs.png", height: 24 },
+  ],
+};
+
+export const projects = {
+  aside: "2 afloat · 2 sunk",
+  items: [
+    {
+      n: "02.1", name: "THE PROGRAM", status: "LIVE", href: "https://theprogram.news",
+      summary: "Fifteen years of American cable news, searchable by word. It counts how often each network said a thing, using closed captions from the GDELT Television API and the Internet Archive's TV News Archive.",
+    },
+    { n: "02.2", name: "Twin Kind", status: "SIDE", summary: "A music project with Kam. Half of it is mine." },
+  ],
+  trash: {
+    n: "02.3",
+    aside: "Logged, then thrown overboard",
+    headline: "Things that didn't make it, and what they taught me.",
+    items: [
+      { kicker: "FETE · [YEAR]", title: "Fete", line: "TODO: what it was, in one line. Why it stopped, in one more." },
+      { kicker: "SPORTS& · [YEAR]", title: "Sports&", line: "TODO: what it was, in one line. Why it stopped, in one more." },
+    ],
+  },
+};
+
+// TODO: confirm the real list. Spines link to Goodreads search.
+export const reading = {
+  aside: "Updated Sep 2026",
+  headline: "On the nightstand.",
+  shelf: [
+    { title: "Gut Feelings", author: "Gerd Gigerenzer", tag: "NOW", spine: "ink", height: 196, width: 44 },
+    { title: "Thinking in Bets", author: "Annie Duke", tag: "NEXT", spine: "harbor", height: 182, width: 40 },
+    { title: "The Count of Monte Cristo", author: "Alexandre Dumas", tag: "NIGHT", spine: "signal", height: 222, width: 62 },
+    { title: "Four Thousand Weeks", author: "Oliver Burkeman", spine: "sailcloth", height: 176, width: 38 },
+    { title: "Being Mortal", author: "Atul Gawande", spine: "slate", height: 188, width: 40 },
+    { title: "Shōgun", author: "James Clavell", spine: "ink", height: 214, width: 58 },
+    { title: "Les Misérables", author: "Victor Hugo", spine: "rule", height: 192, width: 48 },
+    { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", spine: "harbor", height: 206, width: 54 },
+  ],
+  callouts: [
+    { label: "Reading now", title: "Gut Feelings", author: "Gerd Gigerenzer" },
+    { label: "Up next", title: "Thinking in Bets", author: "Annie Duke" },
+    { label: "At night", title: "The Count of Monte Cristo", author: "Alexandre Dumas" },
+  ],
+};
+
+export const writing = {
+  aside: "Archive · Substack",
+  headline: "Two essays from 2024. The next one is in the logbook.",
+  posts: [
+    { log: "LOG 24.08.13", date: "Aug 13, 2024", title: "Circular logic, exponential progress",
+      dek: "On the Hermeneutic Circle, an old idea for working through complex problems.",
+      href: "https://tsweens.substack.com/p/circular-logic-exponential-progress" },
+    { log: "LOG 24.08.08", date: "Aug 8, 2024", title: "“Be Real” is the new “Don’t Be Boring”",
+      dek: "Why authenticity beats gimmicks when attention is short and AI makes everything look polished.",
+      href: "https://tsweens.substack.com/p/be-real-is-the-new-dont-be-boring" },
+  ],
+  links: [
+    { label: "All essays · Substack", href: "https://tsweens.substack.com" },
+    { label: "Shorter, more recent · X", href: "https://x.com/tsweens" },
+  ],
+};
+
+export const workbench = {
+  aside: "Favorites, 2026",
+  headline: "What's open on my desk most days.",
+  tools: [
+    { name: "Cursor", note: "Where the building happens.", href: "https://cursor.com" },
+    { name: "Claude", note: "Writing, critique, and the longer version.", href: "https://claude.ai" },
+    { name: "Midjourney", note: "When the work needs a picture.", href: "https://www.midjourney.com" },
+    { name: "Figma", note: "Layouts before they're real.", href: "https://www.figma.com" },
+    { name: "Notion", note: "The pile of notes that becomes a plan.", href: "https://www.notion.so" },
+  ],
+};
+
+export const contact = {
+  aside: "Replies within a few days",
+  headline: "Send a signal.",
+  body: "Building something, hiring for growth, or want to compare notes on a book? Email is best.",
+  colophon: "END OF LOG",
+  copyright: "© 2026 THOMAS SWEENEY",
+};

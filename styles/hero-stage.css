@@ -1,0 +1,39 @@
+/*
+ * The photo and the overlay share one stage sized like `object-fit: cover`,
+ * so the birds and the wolf stay pinned to the same spot in the photo at every size.
+ * --ox / --oy play the role of object-position, as numbers (0.65 = 65%).
+ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  container-type: size;            /* the hero needs a real height (e.g. min-height) */
+  --ar: 2.7237;                    /* 2070 / 760, the photo's aspect ratio */
+  --ox: 0.65;                      /* desktop crop: keeps the right ridge in frame */
+  --oy: 0.45;
+}
+@media (max-width: 700px) {
+  .hero { --ox: 0.82; }            /* phones: frame on the right cliff, where the wolf stands */
+}
+.hero-stage {
+  --w: max(100cqw, 100cqh * var(--ar));
+  --h: max(100cqh, 100cqw / var(--ar));
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  left: calc((100cqw - var(--w)) * var(--ox));
+  top: calc((100cqh - var(--h)) * var(--oy));
+  pointer-events: none;
+}
+.hero-stage > img,
+.hero-stage > .hero-life {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.hero-life .hl-hit {
+  fill: transparent;
+  cursor: pointer;
+}
