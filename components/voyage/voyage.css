@@ -1,0 +1,250 @@
+.voyage-open {
+  position: absolute;
+  top: 58%;
+  right: 13%;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.voyage-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.voyage-boat,
+.voyage-man,
+.voyage-dog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.voyage-boat {
+  width: 108px;
+  height: 108px;
+}
+
+.voyage-man {
+  width: 46px;
+  height: 58px;
+}
+
+.voyage-dog {
+  width: 54px;
+  height: 42px;
+}
+
+.voyage-traveler {
+  visibility: hidden;
+}
+
+html.voyage-on .voyage-traveler {
+  visibility: visible;
+}
+
+.voyage-grain {
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(20, 36, 58, 0.45) 0.55px, transparent 0.7px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+}
+
+.voyage-margin-sea {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 22% at 6% 18%, rgba(46, 91, 75, 0.45), transparent 70%),
+    radial-gradient(ellipse 34% 20% at 94% 42%, rgba(244, 241, 234, 0.08), transparent 68%),
+    radial-gradient(ellipse 40% 18% at 8% 70%, rgba(20, 36, 58, 0.35), transparent 70%),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 78px,
+      rgba(244, 241, 234, 0.045) 78px 80px,
+      transparent 80px 168px
+    ),
+    linear-gradient(180deg, #1b4e5a 0%, #14243a 48%, #173f4c 100%);
+  mask-image: linear-gradient(
+    90deg,
+    #000 0,
+    #000 calc(50% - 23.25rem),
+    transparent calc(50% - 21rem),
+    transparent calc(50% + 21rem),
+    #000 calc(50% + 23.25rem),
+    #000 100%
+  );
+}
+
+.voyage-shore {
+  position: relative;
+  height: 26rem;
+}
+
+.voyage-mark {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.voyage-mark-water {
+  top: 40%;
+  left: 34%;
+}
+
+.voyage-mark-man {
+  top: 62%;
+  left: 48%;
+}
+
+.voyage-mark-dog {
+  top: 70%;
+  left: 57%;
+}
+
+.voyage-still {
+  display: none;
+}
+
+.voyage-still-boat,
+.voyage-still-man,
+.voyage-still-dog {
+  position: absolute;
+}
+
+.voyage-still-boat {
+  top: 40%;
+  left: 34%;
+  width: 108px;
+  height: 108px;
+  transform: translate(-50%, -50%) rotate(162deg);
+}
+
+.voyage-still-man {
+  top: 62%;
+  left: 48%;
+  width: 46px;
+  height: 58px;
+  transform: translate(-50%, -50%) rotate(170deg);
+}
+
+.voyage-still-dog {
+  top: 70%;
+  left: 57%;
+  width: 54px;
+  height: 42px;
+  transform: translate(-50%, -50%) rotate(148deg);
+}
+
+@media (min-width: 640px) {
+  .voyage-shore {
+    height: 32rem;
+  }
+}
+
+@media (max-width: 959px) and (prefers-reduced-motion: no-preference) {
+  .voyage-open {
+    top: 34%;
+    right: 3.3rem;
+  }
+
+  .voyage-boat {
+    width: 64px;
+    height: 64px;
+  }
+
+  [data-voyage-column] {
+    padding-right: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voyage-traveler {
+    display: none !important;
+  }
+
+  .voyage-still {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .voyage-bob {
+    animation: voyage-bob 3.6s ease-in-out infinite;
+    transform-origin: 50% 52%;
+  }
+
+  .voyage-bob-late {
+    animation-delay: -1.4s;
+  }
+
+  .voyage-wake {
+    opacity: var(--wake, 1);
+    animation: voyage-wake 1.7s ease-in-out infinite;
+  }
+
+  .voyage-tail {
+    transform-box: fill-box;
+    transform-origin: 0% 70%;
+    animation: voyage-wag 0.7s ease-in-out infinite;
+  }
+
+  .hero-swell {
+    animation: hero-swell 16s ease-in-out infinite;
+  }
+
+  .hero-swell-b {
+    animation: hero-swell 22s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes voyage-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.1deg);
+  }
+
+  50% {
+    transform: translateY(2.5px) rotate(1.1deg);
+  }
+}
+
+@keyframes voyage-wake {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes voyage-wag {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(16deg);
+  }
+}
+
+@keyframes hero-swell {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-16px, 8px, 0);
+  }
+}

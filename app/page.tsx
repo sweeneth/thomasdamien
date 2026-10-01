@@ -1,6 +1,9 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { Icon } from "@/components/icons";
+import { HeroSea } from "@/components/voyage/hero-sea";
+import { Landfall } from "@/components/voyage/landfall";
+import { MarginSea } from "@/components/voyage/margin-sea";
+import Voyage from "@/components/voyage/voyage";
 import {
   about,
   email,
@@ -133,20 +136,10 @@ export default function Home() {
       </header>
 
       <main id="content">
-        <section id="top" className="relative isolate min-h-[92vh] text-white">
-          <Image
-            src={hero.image.src}
-            alt={hero.image.alt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[center_35%]"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/75"
-            aria-hidden="true"
-          />
-          <div className="relative z-10 mx-auto flex min-h-[92vh] w-full max-w-[42rem] flex-col px-5 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
+        <section id="top" className="relative isolate min-h-[100svh] text-white">
+          <HeroSea />
+          <span data-voyage-open aria-hidden="true" className="voyage-open" />
+          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[42rem] flex-col px-5 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
             <p className="enter self-start rounded-full border border-white/25 bg-black/30 px-3 py-1 text-sm tracking-wide text-white backdrop-blur-sm">
               {hero.location}
             </p>
@@ -171,16 +164,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <a
-            href={hero.image.creditHref}
-            className="absolute right-4 bottom-4 z-10 text-xs text-white/75 underline decoration-white/30 underline-offset-2 hover:text-white"
-            rel="noreferrer"
-          >
-            {hero.image.credit}
-          </a>
         </section>
 
-        <div className="mx-auto w-full max-w-[42rem] px-5 sm:px-6">
+        <div className="relative">
+          <MarginSea />
+          <div
+            data-voyage-column
+            className="relative z-10 mx-auto w-full max-w-[42rem] px-5 sm:px-6"
+          >
           <section
             id="projects"
             aria-labelledby="projects-heading"
@@ -389,12 +380,17 @@ export default function Home() {
             </ul>
             <SocialLinks className="mt-8 flex items-center gap-1" />
           </section>
+          </div>
         </div>
       </main>
 
-      <footer className="mx-auto w-full max-w-[42rem] px-5 pt-2 pb-14 text-sm text-muted sm:px-6">
-        <p>Thomas Sweeney · Los Angeles</p>
+      <footer>
+        <p className="mx-auto w-full max-w-[42rem] px-5 pt-2 text-sm text-muted sm:px-6">
+          Thomas Sweeney · Los Angeles
+        </p>
+        <Landfall />
       </footer>
+      <Voyage />
     </>
   );
 }
