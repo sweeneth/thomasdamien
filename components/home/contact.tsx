@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { contact, email, sections, site, socials } from "@/lib/content";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Contact() {
@@ -22,19 +23,19 @@ export function Contact() {
               {contact.headline}
             </h2>
             <p className={styles.contactBody}>{contact.body}</p>
-            <a href={`mailto:${email}`} className={styles.email}>
+            <SiteLink href={`mailto:${email}`} className={styles.email}>
               {email}
-            </a>
+            </SiteLink>
           </div>
           <ul className={styles.socialList}>
             {socials.map((item) => (
               <li key={item.label}>
-                <a href={item.href} className={styles.socialRow} rel="noreferrer">
+                <SiteLink href={item.href} className={styles.socialRow}>
                   <span className={styles.socialName}>{item.label}</span>
                   <span className={styles.socialHandle}>
                     {item.handle} <span aria-hidden="true">→</span>
                   </span>
-                </a>
+                </SiteLink>
               </li>
             ))}
           </ul>

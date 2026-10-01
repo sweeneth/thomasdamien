@@ -1,5 +1,6 @@
 import { sections, writing } from "@/lib/content";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Writing() {
@@ -19,7 +20,7 @@ export function Writing() {
         <ul className={styles.archive}>
           {writing.posts.map((post) => (
             <li key={post.href}>
-              <a href={post.href} className={styles.post} rel="noreferrer">
+              <SiteLink href={post.href} className={styles.post}>
                 <span className={styles.postMeta}>
                   <span>{post.log}</span>
                   <span>{post.date}</span>
@@ -28,15 +29,15 @@ export function Writing() {
                   <span className={styles.postTitle}>{post.title}</span>
                   <span className={styles.postDek}>{post.dek}</span>
                 </span>
-              </a>
+              </SiteLink>
             </li>
           ))}
         </ul>
         <div className={styles.writingLinks}>
           {writing.links.map((link) => (
-            <a key={link.href} href={link.href} rel="noreferrer">
+            <SiteLink key={link.href} href={link.href}>
               {link.label} <span aria-hidden="true">→</span>
-            </a>
+            </SiteLink>
           ))}
         </div>
       </div>

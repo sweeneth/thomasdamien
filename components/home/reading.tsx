@@ -1,6 +1,7 @@
 import { reading, sections } from "@/lib/content";
 import { goodreadsHref, spineFontSize, spinePaint } from "./format";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Reading() {
@@ -21,10 +22,9 @@ export function Reading() {
                 const paint = spinePaint[book.spine];
                 return (
                   <li key={book.title}>
-                    <a
+                    <SiteLink
                       className={styles.spine}
                       href={goodreadsHref(book.title, book.author)}
-                      rel="noreferrer"
                       style={{
                         background: paint.background,
                         color: paint.color,
@@ -54,7 +54,7 @@ export function Reading() {
                       </span>
                       <span className={styles.srOnly}> by {book.author}</span>
                       <span className={styles.spineRule} style={{ background: paint.color }} />
-                    </a>
+                    </SiteLink>
                   </li>
                 );
               })}

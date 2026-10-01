@@ -48,7 +48,6 @@ export const site = {
   domain: "thomasdamien.com",
   location: "Los Angeles",
   coordinates: "34.05° N · 118.24° W",
-  oneLiner: "Turning ambitious ideas into enduring businesses.",
   current: { label: "Head of Growth, Watt", href: "https://wattdata.ai" },
   heroImage: { src: "/hero.jpg", alt: "" }, // decorative; TODO: replace with a ≥3000px-wide original
 };

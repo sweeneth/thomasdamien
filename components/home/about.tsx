@@ -3,6 +3,7 @@ import { about, sections } from "@/lib/content";
 import { linkedFact } from "./format";
 import { RichText } from "./rich-text";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function About() {
@@ -39,12 +40,12 @@ export function About() {
                   <div key={fact.label} className={styles.fact}>
                     <dt className={styles.factLabel}>{fact.label}</dt>
                     <dd className={styles.factValue}>
-                      {linked.link ? (
+                      {linked.link && fact.href ? (
                         <>
                           {linked.before}
-                          <a href={fact.href} className={styles.textLink} rel="noreferrer">
+                          <SiteLink href={fact.href} className={styles.textLink}>
                             {linked.link}
-                          </a>
+                          </SiteLink>
                         </>
                       ) : (
                         fact.value
@@ -62,7 +63,7 @@ export function About() {
             {about.loggedAt.map((mark) => (
               <li key={mark.name} className={styles.logoCell}>
                 {mark.href ? (
-                  <a href={mark.href} className={styles.logo} rel="noreferrer">
+                  <SiteLink href={mark.href} className={styles.logo}>
                     <Image
                       src={mark.logo}
                       alt={mark.name}
@@ -70,7 +71,7 @@ export function About() {
                       height={mark.height}
                       style={{ height: mark.height, width: "auto" }}
                     />
-                  </a>
+                  </SiteLink>
                 ) : (
                   <span className={styles.logo}>
                     <Image

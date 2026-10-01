@@ -1,5 +1,6 @@
 import { sections, workbench } from "@/lib/content";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Workbench() {
@@ -16,7 +17,7 @@ export function Workbench() {
         <ul className={styles.tools}>
           {workbench.tools.map((tool, index) => (
             <li key={tool.name}>
-              <a href={tool.href} className={styles.tool} rel="noreferrer">
+              <SiteLink href={tool.href} className={styles.tool}>
                 <span className={styles.toolIndex}>
                   {section.n}.{index + 1}
                 </span>
@@ -27,7 +28,7 @@ export function Workbench() {
                 <span className={styles.toolArrow} aria-hidden="true">
                   →
                 </span>
-              </a>
+              </SiteLink>
             </li>
           ))}
         </ul>

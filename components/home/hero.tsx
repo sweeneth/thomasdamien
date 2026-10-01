@@ -3,6 +3,7 @@
 import { useEffect, useRef, type PointerEvent } from "react";
 import Image from "next/image";
 import { sections, site } from "@/lib/content";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 const ORIGIN_LAT = 34.05;
@@ -104,32 +105,31 @@ export function Hero() {
         </svg>
       </div>
       <div className={`${styles.wrap} ${styles.heroInner}`}>
-        <div className={styles.heroCopy}>
+        <div className={styles.heroFoot}>
           <div className={styles.heroMeta}>
             <span ref={coordsRef} className={styles.coords}>
               {site.coordinates}
             </span>
             <span className={styles.metaRule} aria-hidden="true" />
-            <a href={site.current.href} className={styles.current} rel="noreferrer">
+            <SiteLink href={site.current.href} className={styles.current}>
               <span className={styles.signalDot} aria-hidden="true" />
               <span className={styles.currentLabel}>Current · {site.current.label}</span>
               <span aria-hidden="true">→</span>
-            </a>
+            </SiteLink>
           </div>
-          <p className={styles.lede}>{site.oneLiner}</p>
+          <nav aria-label="Index">
+            <ul className={styles.index}>
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <SiteLink href={`#${section.id}`}>
+                    <span className={styles.indexNum}>{section.n}</span>
+                    <span className={styles.indexTitle}>{section.title}</span>
+                  </SiteLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav aria-label="Index">
-          <ul className={styles.index}>
-            {sections.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`}>
-                  <span className={styles.indexNum}>{section.n}</span>
-                  <span className={styles.indexTitle}>{section.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
     </section>
   );

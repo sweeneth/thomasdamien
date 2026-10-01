@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { site, socials } from "@/lib/content";
 import { isSocialIcon, SocialIcon } from "./icons";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Nav() {
@@ -21,9 +22,9 @@ export function Nav() {
         <ul className={styles.iconNav}>
           {iconLinks.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className={styles.iconLink} aria-label={item.label} rel="noreferrer">
+              <SiteLink href={item.href} className={styles.iconLink} aria-label={item.label}>
                 <SocialIcon name={item.label} />
-              </a>
+              </SiteLink>
             </li>
           ))}
         </ul>

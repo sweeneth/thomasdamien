@@ -10,7 +10,7 @@ import { Writing } from "@/components/home/writing";
 import { email, site, socials } from "@/lib/content";
 
 export default function Home() {
-  const description = site.oneLiner;
+  const description = `${site.name}, ${site.location}. ${site.current.label}.`;
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",

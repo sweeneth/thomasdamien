@@ -1,6 +1,7 @@
 import { projects, sections } from "@/lib/content";
 import { displayHost } from "./format";
 import { SectionLabel } from "./section-label";
+import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
 export function Projects() {
@@ -34,9 +35,9 @@ export function Projects() {
               <div className={styles.projectBody}>
                 <p className={styles.summary}>{project.summary}</p>
                 {project.href ? (
-                  <a href={project.href} className={styles.projectLink} rel="noreferrer">
+                  <SiteLink href={project.href} className={styles.projectLink}>
                     {displayHost(project.href)} <span aria-hidden="true">→</span>
-                  </a>
+                  </SiteLink>
                 ) : (
                   <span className={styles.noLink}>No link yet</span>
                 )}
