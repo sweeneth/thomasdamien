@@ -1,0 +1,30 @@
+{
+  "image": [
+    2070,
+    760
+  ],
+  "wolfAnchor": [
+    1606,
+    244
+  ],
+  "wolfWidth": 30,
+  "wolfFootX": 60,
+  "desktopCrop": {
+    "objectPosition": "65% 45%",
+    "visibleX": [
+      555,
+      1771
+    ]
+  },
+  "mobileCrop": {
+    "objectPosition": "82% 45%",
+    "visibleX": [
+      1378,
+      1768
+    ]
+  },
+  "birdSkyBand": [
+    40,
+    152
+  ]
+}

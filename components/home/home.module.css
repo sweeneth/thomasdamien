@@ -173,13 +173,8 @@
   overflow: hidden;
   background: var(--ts-ink);
   color: var(--ts-sailcloth);
-}
-
-.heroPhoto {
-  object-fit: cover;
-  object-position: 60% top;
-  transform: scale(1.65);
-  transform-origin: 60% top;
+  /* Taller than the overlay handoff's 70vh example so the sky above the ridge stays. Crop is --ox/--oy. */
+  min-height: clamp(680px, 78vw, 960px);
 }
 
 .scrim {
@@ -196,6 +191,7 @@
 
 .heroInner {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

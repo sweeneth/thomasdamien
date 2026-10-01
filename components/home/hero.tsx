@@ -3,6 +3,7 @@
 import { useEffect, useRef, type PointerEvent } from "react";
 import Image from "next/image";
 import { sections, site } from "@/lib/content";
+import HeroLife from "./HeroLife";
 import { SiteLink } from "./site-link";
 import styles from "./home.module.css";
 
@@ -78,21 +79,24 @@ export function Hero() {
   return (
     <section
       id="top"
-      className={styles.hero}
+      className={`${styles.hero} hero`}
       aria-label="Introduction"
       onPointerMove={place}
       onPointerLeave={reset}
       onPointerCancel={reset}
     >
-      <Image
-        src={site.heroImage.src}
-        alt={site.heroImage.alt}
-        fill
-        priority
-        decoding="sync"
-        sizes="100vw"
-        className={styles.heroPhoto}
-      />
+      <div className="hero-stage">
+        <Image
+          src={site.heroImage.src}
+          alt={site.heroImage.alt}
+          fill
+          priority
+          decoding="sync"
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+        <HeroLife />
+      </div>
       <div className={styles.scrim} aria-hidden="true" />
       <div ref={reticleRef} className={styles.reticle} hidden>
         <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">

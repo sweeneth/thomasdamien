@@ -49,7 +49,7 @@ export const site = {
   location: "Los Angeles",
   coordinates: "34.05° N · 118.24° W",
   current: { label: "Head of Growth, Watt", href: "https://wattdata.ai" },
-  heroImage: { src: "/hero.jpg", alt: "" }, // decorative; TODO: replace with a ≥3000px-wide original
+  heroImage: { src: "/hero.jpg", alt: "" }, // locked 2070×760; overlay geometry is measured against this file
 };
 
 export const socials: Social[] = [
