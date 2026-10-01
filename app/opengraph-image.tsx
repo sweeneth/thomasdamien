@@ -1,8 +1,20 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { about, site } from "@/lib/content";
 
-export const alt = "Thomas Sweeney, Head of Growth at Watt";
+export const alt = `${site.name}. ${about.headline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// ImageResponse cannot fetch `/public` URLs. Read the hero once at module
+// scope; this route runs on the Node.js runtime (`fs` is unavailable on Edge).
+export const runtime = "nodejs";
+
+const heroSrc = `data:image/jpeg;base64,${await readFile(
+  join(process.cwd(), "public", site.heroImage.src.replace(/^\//, "")),
+  "base64",
+)}`;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -12,38 +24,46 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
+          position: "relative",
           background: "#14243A",
-          color: "#F4F1EA",
-          padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 22, letterSpacing: "0.12em", color: "#A9B1BC" }}>
-          THOMASDAMIEN.COM
-        </div>
-        <div
+        <img
+          alt=""
+          src={heroSrc}
+          width={size.width}
+          height={size.height}
           style={{
-            display: "flex",
-            marginTop: 24,
-            fontSize: 84,
-            letterSpacing: "-0.02em",
-            lineHeight: 0.95,
-          }}
-        >
-          Thomas Sweeney
-        </div>
-        <div
-          style={{
-            display: "flex",
-            width: 48,
-            height: 4,
-            marginTop: 28,
-            background: "#C8461B",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center 40%",
           }}
         />
-        <div style={{ display: "flex", marginTop: 24, fontSize: 32, color: "#F4F1EA" }}>
-          Head of Growth, Watt
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            bottom: 0,
+            width: "100%",
+            height: 180,
+            display: "flex",
+            alignItems: "flex-end",
+            padding: "0 48px 40px",
+            backgroundImage:
+              "linear-gradient(to top, rgba(20,36,58,0.55), rgba(20,36,58,0))",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              color: "#F4F1EA",
+              fontSize: 40,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {site.name}
+          </div>
         </div>
       </div>
     ),
