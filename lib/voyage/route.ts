@@ -159,13 +159,26 @@ export function planVoyage(): VoyagePlan | null {
     }
   }
 
-  const alignScroll = waterline.y - ySail;
+  const caption = document.querySelector<HTMLElement>("[data-voyage-caption]");
+  const captionBottom = caption
+    ? docTop(caption, scrollY) + caption.getBoundingClientRect().height
+    : docTop(shore, scrollY);
+  const contact = sections.find((section) => section.id === "contact");
+  const aboveBoat = ySail - half - 28;
+  const clearScroll = Math.max(
+    captionBottom - aboveBoat,
+    contact ? contact.bottom - aboveBoat : 0,
+  );
   const afterLayout = poses[poses.length - 1]?.at ?? 0.7;
-  const landStart = clamp(Math.max(alignScroll / maxScroll, afterLayout + 0.06), afterLayout + 0.05, 0.97);
+  const slideAt = clamp(Math.max(clearScroll, 0) / maxScroll, afterLayout + 0.012, 0.972);
+  const landStart = clamp(
+    Math.max((waterline.y - ySail) / maxScroll, slideAt + 0.018),
+    slideAt + 0.012,
+    0.99,
+  );
   const contactLane = laneOf("contact");
-  const landedY = clamp(waterline.y - landStart * maxScroll, minY, maxY);
   poses.push({
-    at: landStart - 0.045,
+    at: slideAt,
     x: clamp(contactLane, minX, maxX),
     y: ySail,
     scale: 1,
@@ -173,28 +186,9 @@ export function planVoyage(): VoyagePlan | null {
   poses.push({
     at: landStart,
     x: clamp(waterline.x, minX, maxX),
-    y: landedY,
+    y: clamp(waterline.y - landStart * maxScroll, minY, maxY),
     scale: 1.04,
   });
 
   return { poses, landStart, waterline, man, dog, maxScroll };
-}
-
-export function samplePose(poses: Pose[], progress: number): Pose {
-  const first = poses[0];
-  if (progress <= first.at) return first;
-  const last = poses[poses.length - 1];
-  if (progress >= last.at) return last;
-
-  let index = 1;
-  while (index < poses.length && poses[index].at < progress) index += 1;
-  const from = poses[index - 1];
-  const to = poses[index];
-  const amount = (progress - from.at) / (to.at - from.at || 1);
-  return {
-    at: progress,
-    x: from.x + (to.x - from.x) * amount,
-    y: from.y + (to.y - from.y) * amount,
-    scale: from.scale + (to.scale - from.scale) * amount,
-  };
 }

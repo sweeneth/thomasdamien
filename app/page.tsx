@@ -139,7 +139,7 @@ export default function Home() {
         <section id="top" className="relative isolate min-h-[100svh] text-white">
           <HeroSea />
           <span data-voyage-open aria-hidden="true" className="voyage-open" />
-          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[42rem] flex-col px-5 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
+          <div className="voyage-hero-copy relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[42rem] flex-col px-5 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
             <p className="enter self-start rounded-full border border-white/25 bg-black/30 px-3 py-1 text-sm tracking-wide text-white backdrop-blur-sm">
               {hero.location}
             </p>
@@ -385,7 +385,10 @@ export default function Home() {
       </main>
 
       <footer>
-        <p className="mx-auto w-full max-w-[42rem] px-5 pt-2 text-sm text-muted sm:px-6">
+        <p
+          data-voyage-caption
+          className="mx-auto w-full max-w-[42rem] px-5 pt-2 text-sm text-muted sm:px-6"
+        >
           Thomas Sweeney · Los Angeles
         </p>
         <Landfall />

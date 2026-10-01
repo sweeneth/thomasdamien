@@ -160,7 +160,9 @@ html.voyage-on .voyage-traveler {
     height: 64px;
   }
 
-  [data-voyage-column] {
+  [data-voyage-column],
+  .voyage-hero-copy,
+  [data-voyage-caption] {
     padding-right: 5.5rem;
   }
 }

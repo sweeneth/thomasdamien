@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import "lenis/dist/lenis.css";
 import { BoatArt, Dog, Man } from "@/components/voyage/boat-art";
-import { planVoyage, samplePose, type Pose, type Point, type VoyagePlan } from "@/lib/voyage/route";
+import { planVoyage, type Point, type VoyagePlan } from "@/lib/voyage/route";
 
 const BEACHED = 162;
 
@@ -32,77 +32,8 @@ function rotateLocal(x: number, y: number, degrees: number) {
   return { x: x * cos - y * sin, y: x * sin + y * cos };
 }
 
-type Sampler = {
-  at: (scrollProgress: number) => { x: number; y: number; scale: number; angle: number };
-};
-
-type PathPlugin = {
-  arrayToRawPath: (
-    values: { x: number; y: number }[],
-    vars?: { curviness?: number },
-  ) => object;
-  cacheRawPathMeasurements: (rawPath: object, resolution?: number) => object;
-  getPositionOnPath: (
-    rawPath: object,
-    progress: number,
-    includeAngle?: boolean,
-  ) => { x: number; y: number; angle?: number };
-};
-
-function buildSampler(poses: Pose[], landStart: number, plugin: PathPlugin): Sampler {
-  const steps = 220;
-  const samples: Pose[] = [];
-  for (let i = 0; i <= steps; i += 1) {
-    samples.push(samplePose(poses, (i / steps) * landStart));
-  }
-
-  const kept: { x: number; y: number }[] = [];
-  const keptIndex: number[] = [];
-  for (let i = 0; i < samples.length; i += 1) {
-    const point = samples[i];
-    const prev = kept[kept.length - 1];
-    if (!prev || Math.hypot(point.x - prev.x, point.y - prev.y) > 1.25) {
-      kept.push({ x: point.x, y: point.y });
-    }
-    keptIndex.push(kept.length - 1);
-  }
-  if (kept.length < 2) {
-    const only = samples[0];
-    kept.push({ x: only.x + 0.5, y: only.y + 0.5 });
-    keptIndex[keptIndex.length - 1] = kept.length - 1;
-  }
-
-  const raw = plugin.arrayToRawPath(kept, { curviness: 0 });
-  plugin.cacheRawPathMeasurements(raw);
-
-  const lengths = [0];
-  for (let i = 1; i < kept.length; i += 1) {
-    lengths.push(lengths[i - 1] + Math.hypot(kept[i].x - kept[i - 1].x, kept[i].y - kept[i - 1].y));
-  }
-  const total = lengths[lengths.length - 1] || 1;
-
-  return {
-    at(scrollProgress: number) {
-      const local = clamp(scrollProgress / landStart, 0, 1);
-      const scaled = local * steps;
-      const index = Math.min(steps - 1, Math.floor(scaled));
-      const amount = scaled - index;
-      const arcA = lengths[keptIndex[index]] / total;
-      const arcB = lengths[keptIndex[index + 1]] / total;
-      const arc = arcA + (arcB - arcA) * amount;
-      const pose = samplePose(poses, Math.min(scrollProgress, landStart));
-      const pos = plugin.getPositionOnPath(raw, arc, true);
-      const ahead = samples[Math.min(steps, index + 4)];
-      const behind = samples[index];
-      const dx = ahead.x - behind.x;
-      const dy = ahead.y - behind.y;
-      const moved = Math.hypot(dx, dy);
-      const angle = moved > 1.5 ? (Math.atan2(dy, dx) * 180) / Math.PI : (pos.angle ?? 0);
-      const x = Number.isFinite(pos.x) ? pos.x : pose.x;
-      const y = Number.isFinite(pos.y) ? pos.y : pose.y;
-      return { x, y, scale: pose.scale, angle };
-    },
-  };
+function viewPoint(point: Point, scrollY: number) {
+  return { x: point.x, y: point.y - scrollY };
 }
 
 type Placed = {
@@ -122,17 +53,16 @@ function placeFigures(
   const span = Math.max(0.0001, 1 - plan.landStart);
   const u = clamp((scrollProgress - plan.landStart) / span, 0, 1);
   const settle = smoothstep(u / 0.42);
-  const appear = smoothstep((u - 0.3) / 0.26);
-  const manWalk = smoothstep((u - 0.46) / 0.54);
-  const dogWalk = smoothstep((u - 0.58) / 0.42);
-
+  const appear = smoothstep((u - 0.28) / 0.24);
+  const manWalk = smoothstep((u - 0.42) / 0.58);
+  const dogWalk = smoothstep((u - 0.55) / 0.45);
   const manDeck = rotateLocal(11 * boat.scale, 8 * boat.scale, boat.rotation);
   const dogDeck = rotateLocal(-12 * boat.scale, 14 * boat.scale, boat.rotation);
   const manTarget = viewPoint(plan.man, scrollY);
   const dogTarget = viewPoint(plan.dog, scrollY);
 
   return {
-    wake: scrollProgress < plan.landStart ? 1 : 1 - settle * 0.8,
+    wake: scrollProgress < plan.landStart ? 1 : 1 - settle * 0.85,
     man: {
       x: lerp(boat.x + manDeck.x, manTarget.x, manWalk),
       y: lerp(boat.y + manDeck.y, manTarget.y, manWalk),
@@ -143,15 +73,11 @@ function placeFigures(
     dog: {
       x: lerp(boat.x + dogDeck.x, dogTarget.x, dogWalk),
       y: lerp(boat.y + dogDeck.y, dogTarget.y, dogWalk),
-      rotation: lerpAngle(boat.rotation, BEACHED - 12, dogWalk),
+      rotation: lerpAngle(boat.rotation, BEACHED - 14, dogWalk),
       scale: lerp(0.72, 1, dogWalk),
       opacity: appear,
     },
   };
-}
-
-function viewPoint(point: Point, scrollY: number) {
-  return { x: point.x, y: point.y - scrollY };
 }
 
 export default function Voyage() {
@@ -167,7 +93,6 @@ export default function Voyage() {
 
     let cancelled = false;
     let stop = () => {};
-
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const boot = async () => {
@@ -196,7 +121,6 @@ export default function Voyage() {
         anchors: false,
         respectReducedMotion: true,
       });
-
       lenis.on("scroll", ScrollTrigger.update);
       const onTick = (time: number) => {
         lenis.raf(time * 1000);
@@ -207,32 +131,37 @@ export default function Voyage() {
       gsap.set([boatEl, manEl, dogEl], { xPercent: -50, yPercent: -50, force3D: true });
       gsap.set([manEl, dogEl], { opacity: 0 });
 
-      let heading = 110;
-      let tween: gsap.core.Tween | null = null;
-      let sampler: Sampler | null = null;
+      let timeline: gsap.core.Timeline | null = null;
       let plan: VoyagePlan | null = null;
       let key = "";
+      let beached = 110;
 
-      const apply = (scrollProgress: number, scrollY: number) => {
-        if (!plan || !sampler) return;
+      const readBoat = () => ({
+        x: Number(gsap.getProperty(boatEl, "x")),
+        y: Number(gsap.getProperty(boatEl, "y")),
+        rotation: Number(gsap.getProperty(boatEl, "rotation")),
+        scale: Number(gsap.getProperty(boatEl, "scale")),
+      });
+
+      const syncCrew = (scrollProgress: number, scrollY: number) => {
+        if (!plan) return;
         const span = Math.max(0.0001, 1 - plan.landStart);
         const u = clamp((scrollProgress - plan.landStart) / span, 0, 1);
-        const settle = smoothstep(clamp(u / 0.42, 0, 1));
-        const along = sampler.at(Math.min(scrollProgress, plan.landStart));
-        const water = viewPoint(plan.waterline, scrollY);
+        const settle = smoothstep(u / 0.45);
+        let boat = readBoat();
 
-        if (scrollProgress < plan.landStart) {
-          heading = lerpAngle(heading, along.angle + 90, 0.35);
+        if (scrollProgress > plan.landStart) {
+          const water = viewPoint(plan.waterline, scrollY);
+          const x = lerp(boat.x, water.x, settle);
+          const y = lerp(boat.y, water.y, settle);
+          beached = lerpAngle(beached, BEACHED, 0.2);
+          gsap.set(boatEl, { x, y, rotation: beached, scale: lerp(boat.scale, 1.04, settle) });
+          boat = { x, y, rotation: beached, scale: lerp(boat.scale, 1.04, settle) };
         } else {
-          heading = lerpAngle(heading, BEACHED, 0.16);
+          beached = boat.rotation;
         }
 
-        const x = scrollProgress <= plan.landStart ? along.x : lerp(along.x, water.x, settle);
-        const y = scrollProgress <= plan.landStart ? along.y : lerp(along.y, water.y, settle);
-        const scale = scrollProgress <= plan.landStart ? along.scale : lerp(along.scale, 1.04, settle);
-
-        gsap.set(boatEl, { x, y, rotation: heading, scale });
-        const crew = placeFigures(plan, scrollProgress, scrollY, { x, y, rotation: heading, scale });
+        const crew = placeFigures(plan, scrollProgress, scrollY, boat);
         gsap.set(manEl, crew.man);
         gsap.set(dogEl, crew.dog);
         boatEl.style.setProperty("--wake", crew.wake.toFixed(3));
@@ -240,35 +169,63 @@ export default function Voyage() {
 
       const rebuild = () => {
         const next = planVoyage();
-        if (!next) return;
+        if (!next || next.poses.length < 2) return;
         const nextKey = `${window.innerWidth}:${Math.round(next.maxScroll / 4)}`;
-        if (nextKey === key && tween) {
-          tween.scrollTrigger?.refresh();
-          apply(tween.scrollTrigger?.progress ?? 0, window.scrollY);
+        if (nextKey === key && timeline) {
+          timeline.scrollTrigger?.refresh();
+          syncCrew(timeline.scrollTrigger?.progress ?? 0, window.scrollY);
           return;
         }
         key = nextKey;
         plan = next;
-        sampler = buildSampler(next.poses, next.landStart, MotionPathPlugin as PathPlugin);
-        tween?.scrollTrigger?.kill();
-        tween?.kill();
+        timeline?.scrollTrigger?.kill();
+        timeline?.kill();
 
-        const progress = { value: 0 };
-        tween = gsap.to(progress, {
-          value: 1,
-          ease: "none",
+        const first = next.poses[0];
+        gsap.set(boatEl, { x: first.x, y: first.y, scale: first.scale, rotation: 110 });
+
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: root,
             start: "top top",
             end: "bottom bottom",
             scrub: true,
             invalidateOnRefresh: true,
-          },
-          onUpdate() {
-            apply(this.progress(), window.scrollY);
+            onUpdate(self) {
+              syncCrew(self.progress, self.scroll());
+            },
           },
         });
-        apply(tween.scrollTrigger?.progress ?? 0, window.scrollY);
+
+        for (let i = 1; i < next.poses.length; i += 1) {
+          const prev = next.poses[i - 1];
+          const pose = next.poses[i];
+          tl.to(
+            boatEl,
+            {
+              motionPath: {
+                path: [
+                  { x: prev.x, y: prev.y },
+                  { x: pose.x, y: pose.y },
+                ],
+                curviness: 0,
+                fromCurrent: false,
+                autoRotate: 90,
+              },
+              scale: pose.scale,
+              duration: Math.max(0.001, pose.at - prev.at),
+              ease: "none",
+            },
+            prev.at,
+          );
+        }
+
+        if (next.landStart < 0.999) {
+          tl.to(boatEl, { duration: Math.max(0.001, 1 - next.landStart) }, next.landStart);
+        }
+
+        timeline = tl;
+        syncCrew(tl.scrollTrigger?.progress ?? 0, window.scrollY);
         root.classList.add("voyage-on");
       };
 
@@ -304,20 +261,22 @@ export default function Voyage() {
       window.addEventListener("resize", onResize);
       rebuild();
       document.fonts?.ready.then(() => {
-        if (!cancelled) rebuild();
+        if (!cancelled) {
+          key = "";
+          rebuild();
+        }
       });
 
       stop = () => {
         window.clearTimeout(resizeTimer);
         document.removeEventListener("click", onAnchor);
         window.removeEventListener("resize", onResize);
-        tween?.scrollTrigger?.kill();
-        tween?.kill();
+        timeline?.scrollTrigger?.kill();
+        timeline?.kill();
         gsap.ticker.remove(onTick);
         lenis.destroy();
         root.classList.remove("voyage-on");
         root.style.scrollBehavior = previousScrollBehavior;
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     };
 
@@ -347,10 +306,12 @@ export default function Voyage() {
         </div>
       </div>
       <div ref={manRef} className="voyage-traveler voyage-man">
-        <Man />
+        <div className="voyage-bob voyage-bob-late">
+          <Man />
+        </div>
       </div>
       <div ref={dogRef} className="voyage-traveler voyage-dog">
-        <div className="voyage-bob voyage-bob-late">
+        <div className="voyage-bob">
           <Dog />
         </div>
       </div>
