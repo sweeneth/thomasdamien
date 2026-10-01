@@ -190,6 +190,7 @@
 .scrim {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(
     180deg,
     rgba(20, 36, 58, 0.1) 0%,
@@ -208,12 +209,14 @@
   height: 100%;
   padding-top: clamp(72px, 10vw, 120px);
   padding-bottom: 32px;
+  pointer-events: none;
 }
 
 .heroFoot {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  pointer-events: auto;
 }
 
 .heroMeta {
@@ -249,12 +252,40 @@
   overflow: visible;
 }
 
-.reticleDot {
-  fill: var(--ts-signal);
+.reticleOuter,
+.reticleInner {
+  transform-box: view-box;
+  transform-origin: center;
 }
 
-.reticleCore {
-  fill: var(--ts-sailcloth);
+.reticleOuter {
+  animation: reticleSpin 36s linear infinite;
+}
+
+.reticleInner {
+  animation: reticleSpin 26s linear infinite reverse;
+}
+
+.reticleDash {
+  fill: none;
+  stroke: var(--ts-signal);
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-dasharray: 2.4 3.5;
+}
+
+.reticleDashCore {
+  fill: none;
+  stroke: var(--ts-sailcloth);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1.7 2.9;
+}
+
+@keyframes reticleSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .metaRule {
@@ -925,6 +956,11 @@
 
   .reticle {
     display: none;
+  }
+
+  .reticleOuter,
+  .reticleInner {
+    animation: none;
   }
 }
 
