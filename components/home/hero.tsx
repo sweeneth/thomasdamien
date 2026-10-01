@@ -40,7 +40,6 @@ export function Hero() {
                 <a href={`#${section.id}`}>
                   <span className={styles.indexNum}>{section.n}</span>
                   <span className={styles.indexTitle}>{section.title}</span>
-                  <span className={styles.indexBlurb}>{section.blurb}</span>
                 </a>
               </li>
             ))}

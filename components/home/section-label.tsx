@@ -10,7 +10,7 @@ export function SectionLabel({
 }: {
   index: string;
   title: string;
-  aside: string;
+  aside?: string;
   tone?: "light" | "dark";
   heading?: boolean;
   headingId?: string;
@@ -29,7 +29,7 @@ export function SectionLabel({
       ) : (
         <p className={labelClass}>{text}</p>
       )}
-      <p className={asideClass}>{aside}</p>
+      {aside ? <p className={asideClass}>{aside}</p> : null}
     </div>
   );
 }

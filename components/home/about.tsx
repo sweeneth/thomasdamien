@@ -12,7 +12,7 @@ export function About() {
   return (
     <section id={section.id} className={styles.section} aria-labelledby="about-heading">
       <div className={styles.wrap}>
-        <SectionLabel index={section.n} title={section.title} aside={about.aside} />
+        <SectionLabel index={section.n} title={section.title} />
         <h2 id="about-heading" className={styles.headline}>
           {about.headline}
         </h2>

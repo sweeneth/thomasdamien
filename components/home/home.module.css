@@ -291,12 +291,6 @@
   font-weight: 500;
 }
 
-.indexBlurb {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--ts-on-ink);
-}
-
 .aboutGrid {
   display: flex;
   flex-wrap: wrap;

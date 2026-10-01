@@ -64,22 +64,20 @@ export const email = "hi@thomasdamien.com";
 
 // The numbered index. Order here = order on the page.
 export const sections = [
-  { n: "01", id: "about", title: "About", blurb: "Twenty years, two industries" },
-  { n: "02", id: "projects", title: "Projects", blurb: "What I'm building" },
-  { n: "03", id: "reading", title: "Reading", blurb: "What's on the nightstand" },
-  { n: "04", id: "writing", title: "Writing", blurb: "Essays, 2024" },
-  { n: "05", id: "workbench", title: "Workbench", blurb: "Tools I use daily" },
-  { n: "06", id: "contact", title: "Contact", blurb: "Send a signal" },
+  { n: "01", id: "about", title: "About" },
+  { n: "02", id: "projects", title: "Projects" },
+  { n: "03", id: "reading", title: "Reading" },
+  { n: "04", id: "writing", title: "Writing" },
+  { n: "05", id: "workbench", title: "Workbench" },
+  { n: "06", id: "contact", title: "Contact" },
 ] as const;
 
 export const about: {
-  aside: string;
   headline: string;
   paragraphs: RichPart[][];
   facts: Fact[];
   loggedAt: Logo[];
 } = {
-  aside: "Los Angeles",
   headline: "Twenty years between media and technology.",
   // Each paragraph is an array of plain strings and links.
   paragraphs: [
