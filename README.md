@@ -28,7 +28,9 @@ The domain is **thomasdamien.com**. Attach it in the Vercel project, then point 
 
 All of the words live in `lib/content.ts`.
 
-The Trash section is three empty slots with `TODO` lines for Thom. Replace them, or delete the ones you don't want, before treating the page as finished.
+The Trash section is three stand-in failures, each marked Placeholder. Replace the titles in `lib/content.ts`, or delete an entry. They are not a real history.
+
+v1 motion on that list is a light hover only. A later version could add a scroll-driven “dump into the trash bin” animation. That is not in this version.
 
 ## What changed from the old site
 

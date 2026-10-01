@@ -30,24 +30,24 @@ export const projects = [
 ] as const;
 
 /**
- * Placeholder shelf. Thom: replace these objects, or delete the ones you don't want.
- * Do not leave the TODO copy on the live site once you have real entries.
+ * Placeholder failures. Clearly labeled so they are not read as real history.
+ * Thom: replace the title and line, or delete an entry, in this file.
  */
 export const trash = [
   {
-    kicker: "Empty slot",
-    title: "Name this one",
-    todo: "TODO for Thom: what it was, and the moment you stopped.",
+    kicker: "Placeholder",
+    title: "The app with one user",
+    line: "That user was me. I still filed a bug.",
   },
   {
-    kicker: "Empty slot",
-    title: "The near miss",
-    todo: "TODO for Thom: the thing that almost shipped. A year is enough.",
+    kicker: "Placeholder",
+    title: "Season two of a newsletter",
+    line: "Season one was a Google Doc and a feeling of momentum.",
   },
   {
-    kicker: "Empty slot",
-    title: "Optional",
-    todo: "TODO for Thom: leave this, replace it, or delete it in lib/content.ts.",
+    kicker: "Placeholder",
+    title: "A name I liked more than the product",
+    line: "The domain was the whole business.",
   },
 ] as const;
 

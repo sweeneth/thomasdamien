@@ -162,17 +162,19 @@ export default function Home() {
             Trash
           </h2>
           <p className="mt-6 max-w-[32rem] text-lg leading-8">
-            Things that failed, stalled, or got abandoned. This shelf is empty
-            on purpose. The real ones are funnier.
+            Things that failed or got abandoned. These three are placeholders,
+            not a confession.
           </p>
-          <ul className="mt-10 space-y-8">
+          <ul className="mt-8">
             {trash.map((item) => (
-              <li key={item.title}>
-                <p className="text-xs tracking-wide text-accent">{item.kicker}</p>
-                <h3 className="mt-1 text-lg tracking-tight text-foreground/80 line-through decoration-foreground/25">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-[15px] leading-6 text-muted">{item.todo}</p>
+              <li key={item.title} className="border-b border-line">
+                <div className="py-5 transition-colors duration-200 hover:bg-wash/80 sm:-mx-3 sm:px-3">
+                  <p className="text-xs tracking-wide text-accent">{item.kicker}</p>
+                  <h3 className="mt-1 text-lg tracking-tight text-foreground/80 line-through decoration-foreground/20">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] leading-6 text-muted">{item.line}</p>
+                </div>
               </li>
             ))}
           </ul>
