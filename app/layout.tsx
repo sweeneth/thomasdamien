@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
-import { site, socials } from "@/lib/content";
+import { about, site, socials } from "@/lib/content";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -28,7 +28,7 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex",
 });
 
-const description = `${site.name}, ${site.location}. ${site.current.label}.`;
+const description = about.headline;
 const xHandle = socials.find((item) => item.label === "X")?.handle;
 
 export const metadata: Metadata = {
