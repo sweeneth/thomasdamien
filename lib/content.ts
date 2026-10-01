@@ -165,15 +165,34 @@ export const media = {
 export const workbench = {
   aside: "Favorites, 2026",
   headline: "What's open on my desk most days.",
-  tools: [
-    { name: "Cursor", note: "Where the building happens.", href: "https://cursor.com" },
-    { name: "Claude", note: "Writing, critique, longer passes.", href: "https://claude.ai" },
-    { name: "Grok", note: "Research and peak-label hunting.", href: "https://x.com/i/grok" },
-    { name: "Next.js", note: "App Router for theprogram.news.", href: "https://nextjs.org" },
-    { name: "Vercel", note: "Ship and preview.", href: "https://vercel.com" },
-    { name: "Tailwind + shadcn", note: "UI system.", href: "https://ui.shadcn.com" },
-    { name: "Recharts", note: "The airtime charts.", href: "https://recharts.org" },
-    { name: "GitHub", note: "Source and PRs.", href: "https://github.com" },
+  columns: [
+    {
+      label: "Build",
+      tools: [
+        { name: "Cursor", note: "Where the building happens.", href: "https://cursor.com" },
+        { name: "Claude", note: "Writing, critique, longer passes.", href: "https://claude.ai" },
+        { name: "Grok", note: "Research and peak-label hunting.", href: "https://x.com/i/grok" },
+        { name: "Next.js", note: "App Router for theprogram.news.", href: "https://nextjs.org" },
+        { name: "Vercel", note: "Ship and preview.", href: "https://vercel.com" },
+        { name: "Tailwind + shadcn", note: "UI system.", href: "https://ui.shadcn.com" },
+        { name: "Recharts", note: "The airtime charts.", href: "https://recharts.org" },
+        { name: "GitHub", note: "Source and PRs.", href: "https://github.com" },
+      ],
+    },
+    {
+      label: "Create",
+      tools: [
+        { name: "Runway", note: "AI video and images.", href: "https://runwayml.com" },
+        { name: "Suno", note: "Music generation.", href: "https://suno.com" },
+        { name: "CapCut", note: "Fast social edits.", href: "https://www.capcut.com" },
+        { name: "Premiere Pro", note: "Full video editing.", href: "https://www.adobe.com/products/premiere.html" },
+        { name: "Ableton Live", note: "Music production.", href: "https://www.ableton.com" },
+        { name: "Figma", note: "Design and layouts.", href: "https://www.figma.com" },
+        { name: "Midjourney", note: "Visual ideation.", href: "https://www.midjourney.com" },
+        { name: "ElevenLabs", note: "Voice and synthetic audio.", href: "https://elevenlabs.io" },
+        { name: "Notion", note: "Drafts and organization.", href: "https://www.notion.so" },
+      ],
+    },
   ],
 };
 

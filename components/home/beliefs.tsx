@@ -16,16 +16,16 @@ export function Beliefs() {
           heading
           headingId="beliefs-heading"
         />
-        <ul className={styles.axioms}>
+        <ul className={styles.bento}>
           {beliefs.lines.map((line, index) => (
-            <li key={line.text} className={styles.axiom}>
-              <span className={styles.axiomIndex}>
+            <li key={line.text} className={styles.tile}>
+              <span className={styles.tileIndex}>
                 {section.n}.{index + 1}
               </span>
-              <blockquote className={styles.axiomQuote}>
-                <p className={styles.axiomText}>{line.text}</p>
+              <blockquote className={styles.tileQuote}>
+                <p className={styles.tileText}>{line.text}</p>
                 {line.by ? (
-                  <p className={`${styles.axiomBy} ${line.named ? styles.axiomByNamed : ""}`}>{line.by}</p>
+                  <p className={`${styles.tileBy} ${line.named ? styles.tileByNamed : ""}`}>{line.by}</p>
                 ) : null}
               </blockquote>
             </li>

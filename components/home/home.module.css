@@ -720,44 +720,51 @@
   color: var(--ts-harbor-green);
 }
 
-.axioms {
-  margin: 8px 0 0;
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.axiom {
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
-  gap: 16px;
-  align-items: baseline;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--ts-rule);
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 240px;
+  margin: 0;
+  padding: 22px 24px 20px;
+  background: var(--ts-surface);
+  border: 1px solid var(--ts-rule);
 }
 
-.axiomIndex {
+.tileIndex {
   font-family: var(--ts-font-mono);
   font-size: 12px;
+  letter-spacing: 0.1em;
   color: var(--ts-slate);
 }
 
-.axiomQuote {
+.tileQuote {
   margin: 0;
-  min-width: 0;
   font-style: normal;
 }
 
-.axiomText {
+.tileText {
   margin: 0;
   font-family: var(--ts-font-display);
-  font-size: clamp(26px, 3vw, 36px);
+  font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.015em;
+  color: var(--ts-ink);
 }
 
-.axiomBy {
-  margin: 12px 0 0;
+.tileBy {
+  margin: 18px 0 0;
   font-family: var(--ts-font-mono);
   font-size: 12px;
   letter-spacing: 0.12em;
@@ -765,12 +772,47 @@
   color: var(--ts-slate);
 }
 
-.axiomByNamed {
+.tileByNamed {
   color: var(--ts-signal);
 }
 
+@media (max-width: 720px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    min-height: 0;
+  }
+}
+
+.bench {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 64px;
+  margin-top: 36px;
+}
+
+.benchLabel {
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ts-rule);
+  font-family: var(--ts-font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ts-slate);
+}
+
 .tools {
-  margin-top: 12px;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .bench {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
 }
 
 .tool {

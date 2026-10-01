@@ -14,24 +14,31 @@ export function Workbench() {
         <h2 id="workbench-heading" className={styles.headline}>
           {workbench.headline}
         </h2>
-        <ul className={styles.tools}>
-          {workbench.tools.map((tool, index) => (
-            <li key={tool.name}>
-              <SiteLink href={tool.href} className={styles.tool}>
-                <span className={styles.toolIndex}>
-                  {section.n}.{index + 1}
-                </span>
-                <span className={styles.toolBody}>
-                  <span className={styles.toolName}>{tool.name}</span>
-                  <span className={styles.toolNote}>{tool.note}</span>
-                </span>
-                <span className={styles.toolArrow} aria-hidden="true">
-                  →
-                </span>
-              </SiteLink>
-            </li>
+        <div className={styles.bench}>
+          {workbench.columns.map((column) => (
+            <div key={column.label}>
+              <p className={styles.benchLabel}>{column.label}</p>
+              <ul className={styles.tools}>
+                {column.tools.map((tool, index) => (
+                  <li key={tool.name}>
+                    <SiteLink href={tool.href} className={styles.tool}>
+                      <span className={styles.toolIndex}>
+                        {section.n}.{index + 1}
+                      </span>
+                      <span className={styles.toolBody}>
+                        <span className={styles.toolName}>{tool.name}</span>
+                        <span className={styles.toolNote}>{tool.note}</span>
+                      </span>
+                      <span className={styles.toolArrow} aria-hidden="true">
+                        →
+                      </span>
+                    </SiteLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
