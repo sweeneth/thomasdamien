@@ -2,47 +2,6 @@
 // Components read from this file; they never hardcode copy.
 // Items marked TODO are placeholders waiting on real content.
 
-type RichPart = string | { text: string; href: string };
-
-type Fact = {
-  label: string;
-  value: string;
-  href?: string;
-};
-
-type Logo = {
-  name: string;
-  href?: string;
-  logo: string;
-  height: number;
-};
-
-type Project = {
-  n: string;
-  name: string;
-  status: string;
-  href?: string;
-  summary: string;
-};
-
-export type SpineTone = "ink" | "harbor" | "signal" | "sailcloth" | "slate" | "rule";
-
-type Book = {
-  title: string;
-  author: string;
-  tag?: string;
-  spine: SpineTone;
-  height: number;
-  width: number;
-};
-
-export type Social = {
-  label: string;
-  href: string;
-  handle: string;
-  icon?: string;
-};
-
 export const site = {
   name: "Thomas Sweeney",
   domain: "thomasdamien.com",
@@ -56,12 +15,12 @@ export const site = {
   heroImage: { src: "/hero.jpg", alt: "" }, // decorative; TODO: replace with a ≥3000px-wide original
 };
 
-export const socials: Social[] = [
+export const socials = [
   { label: "GitHub", href: "https://github.com/sweeneth", handle: "github.com/sweeneth", icon: "/icons/github.svg" },
   { label: "X", href: "https://x.com/tsweens", handle: "@tsweens", icon: "/icons/x.svg" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/thomasdamien", handle: "in/thomasdamien", icon: "/icons/linkedin.svg" },
   { label: "Substack", href: "https://tsweens.substack.com", handle: "tsweens.substack.com" }, // contact list only
-];
+] as const;
 
 export const email = "hi@thomasdamien.com";
 
@@ -75,13 +34,7 @@ export const sections = [
   { n: "06", id: "contact", title: "Contact", blurb: "Send a signal" },
 ] as const;
 
-export const about: {
-  aside: string;
-  headline: string;
-  paragraphs: RichPart[][];
-  facts: Fact[];
-  loggedAt: Logo[];
-} = {
+export const about = {
   aside: "Los Angeles",
   headline: "Twenty years between media and technology, building the whole way through.",
   // Each paragraph is an array of plain strings and links.
@@ -107,16 +60,7 @@ export const about: {
   ],
 };
 
-export const projects: {
-  aside: string;
-  items: Project[];
-  trash: {
-    n: string;
-    aside: string;
-    headline: string;
-    items: { kicker: string; title: string; line: string }[];
-  };
-} = {
+export const projects = {
   aside: "2 afloat · 2 sunk",
   items: [
     {
@@ -137,12 +81,7 @@ export const projects: {
 };
 
 // TODO: confirm the real list. Spines link to Goodreads search.
-export const reading: {
-  aside: string;
-  headline: string;
-  shelf: Book[];
-  callouts: { label: string; title: string; author: string }[];
-} = {
+export const reading = {
   aside: "Updated Sep 2026",
   headline: "On the nightstand.",
   shelf: [

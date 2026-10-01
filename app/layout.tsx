@@ -1,38 +1,67 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
+import { site, socials } from "@/lib/content";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const newsreader = Newsreader({
+  subsets: ["latin", "latin-ext"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
+  preload: false,
+  variable: "--font-newsreader",
 });
 
-const description =
-  "Thomas Sweeney is Head of Growth at Watt. He builds things, including THE PROGRAM, and lives in Los Angeles.";
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-instrument",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  preload: false,
+  variable: "--font-plex",
+});
+
+const description = `${site.oneLiner.lead}${site.oneLiner.emphasis}`;
+const xHandle = socials.find((item) => item.label === "X")?.handle;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thomasdamien.com"),
+  metadataBase: new URL(`https://${site.domain}`),
   title: {
-    default: "Thomas Sweeney",
-    template: "%s · Thomas Sweeney",
+    default: site.name,
+    template: `%s · ${site.name}`,
   },
   description,
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
-    title: "Thomas Sweeney",
+    title: site.name,
     description,
-    url: "https://thomasdamien.com",
-    siteName: "Thomas Sweeney",
+    url: `https://${site.domain}`,
+    siteName: site.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thomas Sweeney",
+    title: site.name,
     description,
-    creator: "@tsweens",
+    creator: xHandle,
   },
   robots: {
     index: true,
@@ -40,10 +69,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const viewport: Viewport = {
+  themeColor: "#14243A",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.className} h-full antialiased`}>
-      <body className="min-h-full bg-background text-foreground">{children}</body>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${instrumentSans.variable} ${plexMono.variable} h-full`}
+    >
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
