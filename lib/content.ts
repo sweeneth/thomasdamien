@@ -177,19 +177,40 @@ export const workbench = {
   ],
 };
 
-// DRAFT mock. Keep or cut this section. Every line below is a placeholder for the owner to replace.
 export const beliefs: {
   aside: string;
-  lines: { text: string; by: string; named?: boolean }[];
+  lines: { text: string; by?: string; named?: boolean }[];
 } = {
-  aside: "Working axioms",
+  aside: "Notes I keep",
   lines: [
-    { text: "Ship the useful thing.", by: "Note" },
-    { text: "Attention is the product.", by: "Note" },
-    { text: "What stands in the way becomes the way.", by: "Marcus Aurelius", named: true },
-    { text: "The channel is not the idea.", by: "Note" },
-    { text: "The medium is the message.", by: "Marshall McLuhan", named: true },
-    { text: "Build in public when the work can teach.", by: "Note" },
+    {
+      text: "I don’t believe people are looking for the meaning of life as much as they are looking for the experience of being alive.",
+      by: "Joseph Campbell",
+      named: true,
+    },
+    {
+      text: "Action leads to insight more often than insight leads to action.",
+    },
+    {
+      text: "My best years are past, but I wouldn’t want them back, not with all the fire that’s in me now.",
+      by: "Samuel Beckett",
+      named: true,
+    },
+    {
+      text: "He who jumps into the void owes no explanation to those who stand and watch.",
+      by: "Jean-Luc Godard (attributed)",
+      named: true,
+    },
+    {
+      text: "Yesterday’s gone on down the river and you can’t get it back.",
+      by: "Gus, Lonesome Dove",
+      named: true,
+    },
+    {
+      text: "Good is something you do, not something you talk about. Some medals are pinned to your soul, not your jacket.",
+      by: "Gino Bartali",
+      named: true,
+    },
   ],
 };
 

@@ -24,7 +24,9 @@ export function Beliefs() {
               </span>
               <blockquote className={styles.axiomQuote}>
                 <p className={styles.axiomText}>{line.text}</p>
-                <p className={`${styles.axiomBy} ${line.named ? styles.axiomByNamed : ""}`}>{line.by}</p>
+                {line.by ? (
+                  <p className={`${styles.axiomBy} ${line.named ? styles.axiomByNamed : ""}`}>{line.by}</p>
+                ) : null}
               </blockquote>
             </li>
           ))}
