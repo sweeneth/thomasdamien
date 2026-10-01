@@ -116,29 +116,28 @@ export const projects: {
   ],
 };
 
-// TODO: confirm the real list. Spines link to Goodreads search.
+// Spines link to a Goodreads search for the title and author.
 export const reading: {
   aside: string;
   headline: string;
   shelf: Book[];
   callouts: { label: string; title: string; author: string }[];
 } = {
-  aside: "Updated Sep 2026",
+  aside: "Updated Oct 2026",
   headline: "On the nightstand.",
   shelf: [
     { title: "Gut Feelings", author: "Gerd Gigerenzer", tag: "NOW", spine: "ink", height: 196, width: 44 },
-    { title: "Thinking in Bets", author: "Annie Duke", tag: "NEXT", spine: "harbor", height: 182, width: 40 },
-    { title: "The Count of Monte Cristo", author: "Alexandre Dumas", tag: "NIGHT", spine: "signal", height: 222, width: 62 },
-    { title: "Four Thousand Weeks", author: "Oliver Burkeman", spine: "sailcloth", height: 176, width: 38 },
-    { title: "Being Mortal", author: "Atul Gawande", spine: "slate", height: 188, width: 40 },
-    { title: "Shōgun", author: "James Clavell", spine: "ink", height: 214, width: 58 },
-    { title: "Les Misérables", author: "Victor Hugo", spine: "rule", height: 192, width: 48 },
-    { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", spine: "harbor", height: 206, width: 54 },
+    { title: "Net Worth", author: "Quentin Casey", spine: "harbor", height: 184, width: 46 },
+    { title: "The Dog Stars", author: "Peter Heller", spine: "signal", height: 208, width: 42 },
+    { title: "Troubled", author: "Rob Henderson", spine: "slate", height: 172, width: 40 },
+    { title: "The Rational Optimist", author: "Matt Ridley", spine: "sailcloth", height: 220, width: 58 },
+    { title: "Against the Machine", author: "Paul Kingsnorth", spine: "rule", height: 206, width: 50 },
+    { title: "How Music Works", author: "David Byrne", spine: "ink", height: 190, width: 46 },
   ],
   callouts: [
     { label: "Reading now", title: "Gut Feelings", author: "Gerd Gigerenzer" },
-    { label: "Up next", title: "Thinking in Bets", author: "Annie Duke" },
-    { label: "At night", title: "The Count of Monte Cristo", author: "Alexandre Dumas" },
+    { label: "Recent", title: "Net Worth", author: "Quentin Casey" },
+    { label: "Also", title: "How Music Works", author: "David Byrne" },
   ],
 };
 
