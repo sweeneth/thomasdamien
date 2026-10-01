@@ -28,7 +28,7 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex",
 });
 
-const description = `${site.oneLiner.lead}${site.oneLiner.emphasis}`;
+const description = site.oneLiner;
 const xHandle = socials.find((item) => item.label === "X")?.handle;
 
 export const metadata: Metadata = {

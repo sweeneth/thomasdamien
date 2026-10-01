@@ -1,6 +1,6 @@
 # Thomas Sweeney
 
-Personal site for [thomasdamien.com](https://thomasdamien.com). One long-scroll page: hero, about, projects (with a trash box), reading, writing, workbench, and contact.
+Personal site for [thomasdamien.com](https://thomasdamien.com). One long-scroll page: hero, about, projects, reading, writing, workbench, and contact.
 
 Built with Next.js (App Router), TypeScript, and Tailwind CSS. No CMS, database, or analytics.
 

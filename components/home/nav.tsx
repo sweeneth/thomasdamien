@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { sections, site, socials } from "@/lib/content";
-import { isSocialIcon, MailIcon, SocialIcon } from "./icons";
+import { site, socials } from "@/lib/content";
+import { isSocialIcon, SocialIcon } from "./icons";
 import styles from "./home.module.css";
 
 export function Nav() {
@@ -11,20 +11,10 @@ export function Nav() {
   return (
     <header className={styles.header}>
       <div className={`${styles.wrap} ${styles.headerInner}`}>
-        <div className={styles.brandCluster}>
-          <a href="#top" className={styles.mark} aria-label={`${site.name}, back to top`}>
-            <Image src="/brand/signal-mark.svg" alt="" width={38} height={38} />
-          </a>
-          <nav aria-label="Sections">
-            <ul className={styles.sectionNav}>
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <a href={`#${section.id}`}>{section.title}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <a href="#top" className={styles.mark} aria-label={`${site.name}, back to top`}>
+          <Image src="/brand/signal-mark.svg" alt="" width={38} height={38} />
+        </a>
+        {/* Intro link may be added here later. Section links stay out of the header. */}
         <ul className={styles.iconNav}>
           {iconLinks.map((item) => (
             <li key={item.label}>
@@ -33,11 +23,6 @@ export function Nav() {
               </a>
             </li>
           ))}
-          <li>
-            <a href="#contact" className={styles.iconLink} aria-label="Email">
-              <MailIcon />
-            </a>
-          </li>
         </ul>
       </div>
     </header>

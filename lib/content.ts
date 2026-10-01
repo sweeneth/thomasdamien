@@ -48,10 +48,7 @@ export const site = {
   domain: "thomasdamien.com",
   location: "Los Angeles",
   coordinates: "34.05° N · 118.24° W",
-  oneLiner: {
-    lead: "I take useful software to the people who need it, and I ",
-    emphasis: "still like building it.", // set in Newsreader italic
-  },
+  oneLiner: "Turning ambitious ideas into enduring businesses.",
   current: { label: "Head of Growth, Watt", href: "https://wattdata.ai" },
   heroImage: { src: "/hero.jpg", alt: "" }, // decorative; TODO: replace with a ≥3000px-wide original
 };
@@ -68,7 +65,7 @@ export const email = "hi@thomasdamien.com";
 // The numbered index. Order here = order on the page.
 export const sections = [
   { n: "01", id: "about", title: "About", blurb: "Twenty years, two industries" },
-  { n: "02", id: "projects", title: "Projects", blurb: "Made, and thrown overboard" },
+  { n: "02", id: "projects", title: "Projects", blurb: "What I'm building" },
   { n: "03", id: "reading", title: "Reading", blurb: "What's on the nightstand" },
   { n: "04", id: "writing", title: "Writing", blurb: "Essays, 2024" },
   { n: "05", id: "workbench", title: "Workbench", blurb: "Tools I use daily" },
@@ -83,7 +80,7 @@ export const about: {
   loggedAt: Logo[];
 } = {
   aside: "Los Angeles",
-  headline: "Twenty years between media and technology, building the whole way through.",
+  headline: "Twenty years between media and technology.",
   // Each paragraph is an array of plain strings and links.
   paragraphs: [
     ["I lead growth at ", { text: "Watt", href: "https://wattdata.ai" }, ", where I run brand, marketing, and go-to-market. Watt builds signal infrastructure for AI agents. On nights and weekends I build ", { text: "THE PROGRAM", href: "https://theprogram.news" }, ", an index of what American cable news talks about."],
@@ -95,7 +92,7 @@ export const about: {
     { label: "Currently", value: "Head of Growth, Watt", href: "https://wattdata.ai" },
     { label: "Previously", value: "CoinTracker · Meta · CAA · CBS" },
     { label: "Education", value: "MBA, NYU Stern · BA, Boston College" },
-    { label: "Mentoring", value: "First Round Fast Track" },
+    { label: "Mentoring", value: "Always" },
   ],
   // "Logged at" tray. Logos are pre-flattened to one color; height is optical, per logo.
   loggedAt: [
@@ -110,14 +107,8 @@ export const about: {
 export const projects: {
   aside: string;
   items: Project[];
-  trash: {
-    n: string;
-    aside: string;
-    headline: string;
-    items: { kicker: string; title: string; line: string }[];
-  };
 } = {
-  aside: "2 afloat · 2 sunk",
+  aside: "2 afloat",
   items: [
     {
       n: "02.1", name: "THE PROGRAM", status: "LIVE", href: "https://theprogram.news",
@@ -125,15 +116,6 @@ export const projects: {
     },
     { n: "02.2", name: "Twin Kind", status: "SIDE", summary: "A music project with Kam. Half of it is mine." },
   ],
-  trash: {
-    n: "02.3",
-    aside: "Logged, then thrown overboard",
-    headline: "Things that didn't make it, and what they taught me.",
-    items: [
-      { kicker: "FETE · [YEAR]", title: "Fete", line: "TODO: what it was, in one line. Why it stopped, in one more." },
-      { kicker: "SPORTS& · [YEAR]", title: "Sports&", line: "TODO: what it was, in one line. Why it stopped, in one more." },
-    ],
-  },
 };
 
 // TODO: confirm the real list. Spines link to Goodreads search.
@@ -184,10 +166,13 @@ export const workbench = {
   headline: "What's open on my desk most days.",
   tools: [
     { name: "Cursor", note: "Where the building happens.", href: "https://cursor.com" },
-    { name: "Claude", note: "Writing, critique, and the longer version.", href: "https://claude.ai" },
-    { name: "Midjourney", note: "When the work needs a picture.", href: "https://www.midjourney.com" },
-    { name: "Figma", note: "Layouts before they're real.", href: "https://www.figma.com" },
-    { name: "Notion", note: "The pile of notes that becomes a plan.", href: "https://www.notion.so" },
+    { name: "Claude", note: "Writing, critique, longer passes.", href: "https://claude.ai" },
+    { name: "Grok", note: "Research and peak-label hunting.", href: "https://x.com/i/grok" },
+    { name: "Next.js", note: "App Router for theprogram.news.", href: "https://nextjs.org" },
+    { name: "Vercel", note: "Ship and preview.", href: "https://vercel.com" },
+    { name: "Tailwind + shadcn", note: "UI system.", href: "https://ui.shadcn.com" },
+    { name: "Recharts", note: "The airtime charts.", href: "https://recharts.org" },
+    { name: "GitHub", note: "Source and PRs.", href: "https://github.com" },
   ],
 };
 

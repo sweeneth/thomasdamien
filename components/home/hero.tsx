@@ -31,10 +31,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-          <p className={styles.lede}>
-            {site.oneLiner.lead}
-            <em>{site.oneLiner.emphasis}</em>
-          </p>
+          <p className={styles.lede}>{site.oneLiner}</p>
         </div>
         <nav aria-label="Index">
           <ul className={styles.index}>

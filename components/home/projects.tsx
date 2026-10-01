@@ -44,19 +44,6 @@ export function Projects() {
             </article>
           ))}
         </div>
-        <div id="trash" className={styles.trash}>
-          <SectionLabel index={projects.trash.n} title="Trash" aside={projects.trash.aside} />
-          <h3 className={styles.trashTitle}>{projects.trash.headline}</h3>
-          <ul className={styles.trashGrid}>
-            {projects.trash.items.map((item) => (
-              <li key={item.title} className={styles.trashItem}>
-                <p className={styles.trashKicker}>{item.kicker}</p>
-                <p className={styles.trashName}>{item.title}</p>
-                <p className={styles.trashLine}>{item.line}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );
