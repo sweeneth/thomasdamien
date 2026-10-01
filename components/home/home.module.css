@@ -173,8 +173,8 @@
   overflow: hidden;
   background: var(--ts-ink);
   color: var(--ts-sailcloth);
-  /* Taller than the overlay handoff's 70vh example so the sky above the ridge stays. Crop is --ox/--oy. */
-  min-height: clamp(680px, 78vw, 960px);
+  /* Definite height so the stage's cqh crop resolves. Taller than the handoff's 70vh example so the sky above the ridge stays. */
+  height: clamp(680px, 78vw, 960px);
 }
 
 .scrim {
@@ -195,7 +195,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: clamp(680px, 78vw, 960px);
+  height: 100%;
   padding-top: clamp(72px, 10vw, 120px);
   padding-bottom: 32px;
 }
