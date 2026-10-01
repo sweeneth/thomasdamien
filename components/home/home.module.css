@@ -688,6 +688,55 @@
   color: var(--ts-harbor-green);
 }
 
+.axioms {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.axiom {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--ts-rule);
+}
+
+.axiomIndex {
+  font-family: var(--ts-font-mono);
+  font-size: 12px;
+  color: var(--ts-slate);
+}
+
+.axiomQuote {
+  margin: 0;
+  min-width: 0;
+  font-style: normal;
+}
+
+.axiomText {
+  margin: 0;
+  font-family: var(--ts-font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.axiomBy {
+  margin: 12px 0 0;
+  font-family: var(--ts-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ts-slate);
+}
+
+.axiomByNamed {
+  color: var(--ts-signal);
+}
+
 .tools {
   margin-top: 12px;
 }

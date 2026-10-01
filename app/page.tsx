@@ -1,4 +1,5 @@
 import { About } from "@/components/home/about";
+import { Beliefs } from "@/components/home/beliefs";
 import { Contact } from "@/components/home/contact";
 import { Hero } from "@/components/home/hero";
 import { Nav } from "@/components/home/nav";
@@ -39,6 +40,7 @@ export default function Home() {
         <Reading />
         <Writing />
         <Workbench />
+        <Beliefs />
         <Contact />
       </main>
     </>

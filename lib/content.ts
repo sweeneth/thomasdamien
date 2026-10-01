@@ -69,7 +69,8 @@ export const sections = [
   { n: "03", id: "reading", title: "Reading" },
   { n: "04", id: "writing", title: "Writing" },
   { n: "05", id: "workbench", title: "Workbench" },
-  { n: "06", id: "contact", title: "Contact" },
+  { n: "06", id: "beliefs", title: "Beliefs" },
+  { n: "07", id: "contact", title: "Contact" },
 ] as const;
 
 export const about: {
@@ -110,9 +111,12 @@ export const projects: {
   items: [
     {
       n: "02.1", name: "THE PROGRAM", status: "LIVE", href: "https://theprogram.news",
-      summary: "Fifteen years of American cable news, searchable by word. It counts how often each network said a thing, using closed captions from the GDELT Television API and the Internet Archive's TV News Archive.",
+      summary: "Fifteen years of American cable news, searchable by word.",
     },
-    { n: "02.2", name: "Twin Kind", status: "SIDE", summary: "A music project with Kam. Half of it is mine." },
+    {
+      n: "02.2", name: "Twin Kind", status: "SIDE", href: "https://twnknd.com",
+      summary: "A transcendental music journey.",
+    },
   ],
 };
 
@@ -169,6 +173,22 @@ export const workbench = {
     { name: "Tailwind + shadcn", note: "UI system.", href: "https://ui.shadcn.com" },
     { name: "Recharts", note: "The airtime charts.", href: "https://recharts.org" },
     { name: "GitHub", note: "Source and PRs.", href: "https://github.com" },
+  ],
+};
+
+// DRAFT mock. Keep or cut this section. Every line below is a placeholder for the owner to replace.
+export const beliefs: {
+  aside: string;
+  lines: { text: string; by: string; named?: boolean }[];
+} = {
+  aside: "Working axioms",
+  lines: [
+    { text: "Ship the useful thing.", by: "Note" },
+    { text: "Attention is the product.", by: "Note" },
+    { text: "What stands in the way becomes the way.", by: "Marcus Aurelius", named: true },
+    { text: "The channel is not the idea.", by: "Note" },
+    { text: "The medium is the message.", by: "Marshall McLuhan", named: true },
+    { text: "Build in public when the work can teach.", by: "Note" },
   ],
 };
 
