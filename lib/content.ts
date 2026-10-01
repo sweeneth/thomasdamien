@@ -56,7 +56,7 @@ export const socials: Social[] = [
   { label: "GitHub", href: "https://github.com/sweeneth", handle: "github.com/sweeneth", icon: "/icons/github.svg" },
   { label: "X", href: "https://x.com/tsweens", handle: "@tsweens", icon: "/icons/x.svg" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/thomasdamien", handle: "in/thomasdamien", icon: "/icons/linkedin.svg" },
-  { label: "Substack", href: "https://tsweens.substack.com", handle: "tsweens.substack.com" }, // contact list only
+  { label: "Substack", href: "https://tsweens.substack.com", handle: "tsweens.substack.com" },
 ];
 
 export const email = "hi@thomasdamien.com";
@@ -69,7 +69,6 @@ export const sections = [
   { n: "04", id: "writing", title: "Writing" },
   { n: "05", id: "workbench", title: "Workbench" },
   { n: "06", id: "beliefs", title: "Beliefs" },
-  { n: "07", id: "contact", title: "Contact" },
 ] as const;
 
 export const about: {
@@ -191,10 +190,7 @@ export const beliefs: {
   ],
 };
 
-export const contact = {
-  aside: "Replies within a few days",
-  headline: "Send a signal.",
-  body: "Building something, hiring for growth, or want to compare notes on a book? Email is best.",
-  colophon: "END OF LOG",
+export const colophon = {
+  line: "END OF LOG",
   copyright: "© 2026 THOMAS SWEENEY",
 };

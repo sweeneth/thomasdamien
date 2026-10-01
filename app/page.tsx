@@ -1,6 +1,6 @@
 import { About } from "@/components/home/about";
 import { Beliefs } from "@/components/home/beliefs";
-import { Contact } from "@/components/home/contact";
+import { Colophon } from "@/components/home/colophon";
 import { Hero } from "@/components/home/hero";
 import { Nav } from "@/components/home/nav";
 import { Projects } from "@/components/home/projects";
@@ -41,7 +41,7 @@ export default function Home() {
         <Writing />
         <Workbench />
         <Beliefs />
-        <Contact />
+        <Colophon />
       </main>
     </>
   );

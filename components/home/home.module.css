@@ -123,7 +123,6 @@
 .logoGrid,
 .tools,
 .archive,
-.socialList,
 .spines {
   list-style: none;
   margin: 0;
@@ -781,97 +780,15 @@
   font-size: 14px;
 }
 
-.contact {
-  scroll-margin-top: 80px;
+.colophon {
   margin-top: clamp(72px, 10vw, 120px);
   background: var(--ts-ink);
   color: var(--ts-sailcloth);
 }
 
-.contactInner {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  padding-top: clamp(64px, 9vw, 112px);
+.colophonInner {
+  padding-top: 36px;
   padding-bottom: 40px;
-}
-
-.contactGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px 72px;
-}
-
-.contactLead {
-  flex: 1 1 340px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.contactHeadline {
-  font-family: var(--ts-font-display);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-}
-
-.contactBody {
-  max-width: 44ch;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ts-on-ink);
-}
-
-.email {
-  font-family: var(--ts-font-display);
-  font-size: clamp(26px, 3.8vw, 44px);
-  font-style: italic;
-  color: var(--ts-sailcloth);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--ts-signal);
-  text-underline-offset: 7px;
-  overflow-wrap: anywhere;
-}
-
-.email:hover {
-  color: var(--ts-harbor-green);
-}
-
-.socialList {
-  flex: 1 1 320px;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--ts-hairline);
-}
-
-.socialRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--ts-hairline);
-  text-decoration: none;
-  color: var(--ts-sailcloth);
-}
-
-.socialRow:hover {
-  color: var(--ts-harbor-green);
-}
-
-.socialName {
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.socialHandle {
-  font-family: var(--ts-font-mono);
-  font-size: 13px;
-  color: var(--ts-on-ink);
 }
 
 .footer {
