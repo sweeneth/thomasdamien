@@ -173,6 +173,7 @@ export const workbench = {
         { name: "Claude", note: "Writing, critique, longer passes.", href: "https://claude.ai" },
         { name: "Grok", note: "Research and peak-label hunting.", href: "https://x.com/i/grok" },
         { name: "Next.js", note: "App Router for theprogram.news.", href: "https://nextjs.org" },
+        { name: "React", note: "The foundation underneath.", href: "https://react.dev" },
         { name: "Vercel", note: "Ship and preview.", href: "https://vercel.com" },
         { name: "Tailwind + shadcn", note: "UI system.", href: "https://ui.shadcn.com" },
         { name: "Recharts", note: "The airtime charts.", href: "https://recharts.org" },
