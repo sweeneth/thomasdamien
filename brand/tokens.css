@@ -1,0 +1,35 @@
+/* Tom Sweeney — brand tokens */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --ts-ink: #14243A;
+  --ts-sailcloth: #F4F1EA;
+  --ts-harbor-green: #2E5B4B;
+  --ts-signal: #C8461B;
+  --ts-flag-gold: #E0A93B; /* flags only */
+  --ts-slate: #5A6270;
+  --ts-body-ink: #3A4556;
+  --ts-rule: #D9D3C5;
+  --ts-surface: #FFFFFF;
+
+  --ts-font-display: 'Newsreader', Georgia, serif;
+  --ts-font-body: 'Instrument Sans', system-ui, sans-serif;
+  --ts-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --ts-text-display: 64px;
+  --ts-text-h1: 48px;
+  --ts-text-h2: 32px;
+  --ts-text-h3: 24px;
+  --ts-text-body-lg: 20px;
+  --ts-text-body: 18px;
+  --ts-text-small: 15px;
+  --ts-text-label: 13px;
+}
+
+body { background: var(--ts-sailcloth); color: var(--ts-ink); font: 400 var(--ts-text-body)/1.6 var(--ts-font-body); }
+h1, h2, h3, .ts-display { font-family: var(--ts-font-display); font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+em, .ts-emphasis { font-family: var(--ts-font-display); font-style: italic; color: var(--ts-harbor-green); }
+.ts-label { font-family: var(--ts-font-mono); font-size: var(--ts-text-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ts-slate); }
+.ts-index { font-family: var(--ts-font-mono); font-size: var(--ts-text-label); letter-spacing: 0.12em; color: var(--ts-signal); }
+hr, .ts-rule { border: 0; border-top: 1px solid var(--ts-rule); }
+a { color: var(--ts-ink); } a:hover { color: var(--ts-harbor-green); }

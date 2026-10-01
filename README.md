@@ -30,7 +30,7 @@ Everything a visitor reads is in `lib/content.ts`: hero, projects, trash, writin
 
 The hero photograph is `public/canyon.jpg`, a canyon landscape from [Unsplash](https://unsplash.com/photos/qQC8tyG_JVA). Swap the file when you want your own picture, and update the alt text and credit in `lib/content.ts`.
 
-The favicon is a temporary “T” in `app/icon.svg`.
+The mark is the Logbook Seal (`public/favicon.svg` and `public/brand/seal.svg`), not an earlier sailboat. The header uses `public/brand/lockup.svg` on sailcloth; `lockup-reverse.svg` is there for an ink background. Colors and type tokens live in `brand/tokens.css`. Flag Gold stays inside the flags.
 
 GitHub in the nav points at [github.com/sweeneth](https://github.com/sweeneth). That profile exists and is nearly empty, so confirm it is yours or change `profiles.github`.
 

@@ -13,37 +13,43 @@ export default function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          background: "#f7f6f3",
-          color: "#1a1917",
-          padding: "80px",
+          justifyContent: "space-between",
+          background: "#F4F1EA",
+          color: "#14243A",
+          padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 24, color: "#8f4630" }}>
-          thomasdamien.com
-        </div>
         <div
           style={{
             display: "flex",
-            marginTop: 28,
-            fontSize: 76,
-            letterSpacing: "-0.04em",
-            lineHeight: 1,
+            justifyContent: "space-between",
+            fontSize: 22,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
           }}
         >
-          Thomas Sweeney
+          <span style={{ color: "#C8461B" }}>01 — Currently</span>
+          <span style={{ color: "#5A6270" }}>34.05° N · 118.24° W</span>
         </div>
-        <div
-          style={{
-            display: "flex",
-            width: 64,
-            height: 3,
-            marginTop: 28,
-            background: "#8f4630",
-          }}
-        />
-        <div style={{ display: "flex", marginTop: 28, fontSize: 32 }}>
-          Head of Growth at Watt
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", fontSize: 84, lineHeight: 1, letterSpacing: "-0.02em" }}>
+            Thomas Sweeney
+          </div>
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              height: 1,
+              marginTop: 28,
+              background: "#D9D3C5",
+            }}
+          />
+          <div style={{ display: "flex", marginTop: 28, fontSize: 32, color: "#3A4556" }}>
+            Head of Growth at Watt
+          </div>
+        </div>
+        <div style={{ display: "flex", fontSize: 20, letterSpacing: "0.12em", color: "#5A6270" }}>
+          LOS ANGELES
         </div>
       </div>
     ),

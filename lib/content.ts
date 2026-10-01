@@ -41,12 +41,16 @@ export const socials = [
   { label: "LinkedIn", href: profiles.linkedin, icon: "linkedin" },
 ] as const;
 
+/** Los Angeles, matching the coordinates drawn in the Logbook lockup. */
+export const coordinates = "34.05° N · 118.24° W";
+
 export const sectionNav = [
-  { href: "#projects", label: "Projects" },
-  { href: "#writing", label: "Writing" },
-  { href: "#about", label: "About" },
-  { href: "#tools", label: "Tools" },
-  { href: "#contact", label: "Contact" },
+  { href: "#top", index: "01", label: "Currently" },
+  { href: "#projects", index: "02", label: "Projects" },
+  { href: "#writing", index: "03", label: "Writing" },
+  { href: "#about", index: "04", label: "About" },
+  { href: "#tools", index: "05", label: "Tools" },
+  { href: "#contact", index: "06", label: "Contact" },
 ] as const;
 
 export const projects = [
