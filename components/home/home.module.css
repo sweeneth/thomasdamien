@@ -480,6 +480,23 @@
   height: auto;
 }
 
+@media (max-width: 720px) {
+  .project {
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .projectThumb {
+    width: 104px;
+  }
+
+  .projectName {
+    font-size: 28px;
+  }
+}
+
 .projectCopy {
   flex: 1 1 280px;
   min-width: 0;
