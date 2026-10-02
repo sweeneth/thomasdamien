@@ -459,10 +459,50 @@
 
 .project {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 48px;
+  align-items: center;
+  gap: 20px 28px;
   padding: 36px 0;
   border-bottom: 1px solid var(--ts-rule);
+}
+
+.projectThumb {
+  flex: none;
+  width: clamp(120px, 16vw, 176px);
+  border: 1px solid var(--ts-rule);
+  background: var(--ts-ink);
+  line-height: 0;
+  text-decoration: none;
+}
+
+.projectThumbImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .project {
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .projectThumb {
+    width: 104px;
+  }
+
+  .projectName {
+    font-size: 28px;
+  }
+}
+
+.projectCopy {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
 }
 
 .projectMain {

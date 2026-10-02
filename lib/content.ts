@@ -22,6 +22,7 @@ type Project = {
   name: string;
   status: string;
   href?: string;
+  image?: { src: string; alt: string };
   summary: string;
 };
 
@@ -109,10 +110,12 @@ export const projects: {
   items: [
     {
       n: "02.1", name: "THE PROGRAM", status: "LIVE", href: "https://theprogram.news",
+      image: { src: "/projects/the-program.jpg", alt: "THE PROGRAM homepage" },
       summary: "Fifteen years of American cable news, searchable by word.",
     },
     {
       n: "02.2", name: "Twin Kind", status: "SIDE", href: "https://twnknd.com",
+      image: { src: "/projects/twnknd.jpg", alt: "Twin Kind homepage" },
       summary: "A transcendental music journey.",
     },
   ],
