@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
 import { about, site, socials } from "@/lib/content";
 import "./globals.css";
@@ -79,7 +80,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${newsreader.variable} ${instrumentSans.variable} ${plexMono.variable} h-full`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
